@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Overall Cashflow</title>
+    <title>Overall Cashflow</title>
 </head>
 <body>
-  Hello world!<br>
-  Testing GitHub Pages website hosting...
+<label>
+    Google Spreadsheet ID:
+    <input type="text" name="spreadsheetID" id="spreadsheetID">
+</label>
 
-  <!-- Load React. -->
-  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
-  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+<!-- Load React. -->
+<!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
 
-  <!-- Load Axios (AJAX library) -->
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<!-- Load Axios (AJAX library) -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<!-- Load Google Sheets APIs -->
+<script
+    type="text/javascript"
+    src="https://apis.google.com/js/api.js"
+    async
+    defer
+    crossOrigin="anonymous"
+    onload="this.onload=function(){};"
+    onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
+
+<script type="text/javascript" src="behavior.js"></script>
 </body>
 </html>
