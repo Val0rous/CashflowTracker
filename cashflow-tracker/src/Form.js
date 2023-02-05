@@ -1,12 +1,12 @@
-import { Form, Text } from "informed";  //https://joepuzzo.github.io/informed/
-import React from "react";
+import { Form, Input } from "informed";
+import {Component} from "react";  //https://joepuzzo.github.io/informed/
 
 const SPREADSHEET_ID = "";  //from the URL of your blank Google Sheet
 const CLIENT_ID = "";   //from https://console.developers.google.com/apis/credentials
 const API_KEY = "";     //https://console.developers.google.com/apis/credentials
 const SCOPE = "https://www.googleapis.com/auth/spreadsheets";
 
-export default class ContactForm extends React.Component {
+export default class ContactForm extends Component {
     constructor(props) {
         super(props);
         this.onFormSubmit = this.onFormSubmit.bind(this);   //to tie the form's callback to this class
@@ -66,7 +66,7 @@ export default class ContactForm extends React.Component {
             >
                 <label>
                     First name:
-                    <Text field="name" />
+                    <Input field="name" />
                 </label>
                 <button type="submit">
                     Submit

@@ -1,7 +1,0 @@
-{
-  "name": "CashflowTracker",
-  "version": "1.0.0",
-  "dependencies": {
-    "informed": "^4.39.3"
-  }
-}
