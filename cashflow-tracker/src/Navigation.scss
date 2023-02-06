@@ -1,21 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+
+
 .Navigation {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-flow: row;
-  background-color: #282c34;
-  padding-bottom: 24px;
+  background-color: white;
+  //padding-bottom: 24px;
+  position: fixed;
+  bottom: 0;
+  //height: 48px;
+  width: 100%;
+
+  .material-symbols-outlined {
+    font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 48;
+    padding: 8px;
+  }
 
   button {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #61dafb;
-    border-color: #282c34;
+    flex-flow: column;
+    background-color: transparent;
+    border: none;
+    //border-color: #282c34;
     cursor: pointer;
-    height: 48px;
-    padding: 12px 24px;
-    font-weight: bold;
+    //height: 48px;
+    //padding: 12px 24px;
+    width: 96px;
+    height: 100%;
+    font-weight: normal;
     border-radius: 6px;
+    padding: 4px 12px 12px;
   }
 }
