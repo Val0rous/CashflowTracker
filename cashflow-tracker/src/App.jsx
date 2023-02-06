@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.scss';
 
-function App() {
+export default function App() {
   return (
     <div className="App">
       <header className="App-header">
@@ -18,13 +18,6 @@ function App() {
           Learn React
         </a>
       </header>
-      <nav className="Navigation">
-        <button>Log</button>
-        <button>List</button>
-        <button>Stats</button>
-      </nav>
     </div>
   );
 }
-
-export default App;
