@@ -1,5 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
-
 
 .Navigation {
   display: flex;
@@ -12,14 +12,27 @@
   bottom: 0;
   //height: 48px;
   width: 100%;
+  border-top: 1px solid rgba(0, 0, 0, 0.0975);
 
   .material-symbols-outlined {
     font-variation-settings:
             'FILL' 0,
-            'wght' 400,
+            'wght' 300,
             'GRAD' 0,
             'opsz' 48;
     padding: 8px;
+    font-size: 28px;
+  }
+
+  .selected {
+    color: #1a73e8;
+    font-weight: 700;
+
+    .material-symbols-outlined {
+      font-variation-settings:
+              //"FILL" 1,
+              "wght" 500;
+    }
   }
 
   button {
@@ -33,9 +46,10 @@
     cursor: pointer;
     //height: 48px;
     //padding: 12px 24px;
-    width: 96px;
+    width: 25%;
     height: 100%;
-    font-weight: normal;
+    //font-weight: normal;
+    font: 400 14px "Roboto", sans-serif;
     border-radius: 6px;
     padding: 4px 12px 12px;
   }

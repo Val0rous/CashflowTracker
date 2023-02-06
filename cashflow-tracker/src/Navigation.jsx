@@ -3,25 +3,25 @@ import "./Navigation.scss"
 export default function Navigation() {
   return (
     <nav className="Navigation">
-      <button>
+      <button className="selected" onClick={navbar}>
         <span className="material-symbols-outlined">
           paid
         </span>
-        Log
+        New Log
       </button>
-      <button>
+      <button onClick={navbar}>
         <span className="material-symbols-outlined">
           format_list_bulleted
         </span>
-        List
+        Transactions
       </button>
-      <button>
+      <button onClick={navbar}>
         <span className="material-symbols-outlined">
           monitoring
         </span>
         Stats
       </button>
-      <button>
+      <button onClick={navbar}>
         <span className="material-symbols-outlined">
           settings
         </span>
@@ -29,4 +29,8 @@ export default function Navigation() {
       </button>
     </nav>
   )
+}
+
+function navbar() {
+  //switch page
 }
