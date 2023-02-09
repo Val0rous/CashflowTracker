@@ -1,32 +1,41 @@
 import "./Navigation.scss"
+import {NavLink} from "react-router-dom";
 
 export default function Navigation() {
   return (
     <nav className="Navigation">
-      <button className="selected" onClick={navbar}>
-        <span className="material-symbols-outlined">
-          paid
-        </span>
-        New Log
-      </button>
-      <button onClick={navbar}>
-        <span className="material-symbols-outlined">
-          format_list_bulleted
-        </span>
-        Transactions
-      </button>
-      <button onClick={navbar}>
-        <span className="material-symbols-outlined">
-          monitoring
-        </span>
-        Stats
-      </button>
-      <button onClick={navbar}>
-        <span className="material-symbols-outlined">
-          settings
-        </span>
-        Settings
-      </button>
+      <NavLink to="/" end>
+        <button onClick={navbar}>
+          <span className="material-symbols-outlined">
+            paid
+          </span>
+          New&nbsp;Log
+        </button>
+      </NavLink>
+      <NavLink to="/transactions">
+        <button onClick={navbar}>
+          <span className="material-symbols-outlined">
+            format_list_bulleted
+          </span>
+          Transactions
+        </button>
+      </NavLink>
+      <NavLink to="/statistics">
+        <button onClick={navbar}>
+          <span className="material-symbols-outlined">
+            monitoring
+          </span>
+          Stats
+        </button>
+      </NavLink>
+      <NavLink to="/settings">
+        <button onClick={navbar}>
+          <span className="material-symbols-outlined">
+            settings
+          </span>
+          Settings
+        </button>
+      </NavLink>
     </nav>
   )
 }
