@@ -4,7 +4,7 @@ import Navigation from "./Navigation";
 import {BrowserRouter, HashRouter, Routes, Route} from "react-router-dom";
 import Log from "./Log";
 import Transactions from "./Transactions";
-import Stats from "./Statistics";
+import Statistics from "./Statistics";
 import Settings from "./Settings";
 
 export default function App() {
@@ -25,12 +25,12 @@ export default function App() {
             Learn React
           </a>
         </header>
-        <Navigation/>
+        <Navigation />
         <Routes>
-          <Route path="/" element={<Log />}/>
-          <Route path="/transactions" element={<Transactions />}/>
-          <Route path="/statistics" element={<Stats />}/>
-          <Route path="/settings" element={<Settings />}/>
+          <Route path="/CashflowTracker/" element={<Log />} />
+          <Route path="/CashflowTracker/transactions" element={<Transactions />} />
+          <Route path="/CashflowTracker/stats" element={<Statistics />} />
+          <Route path="/CashflowTracker/settings" element={<Settings />} />
         </Routes>
       </BrowserRouter>
     </div>
