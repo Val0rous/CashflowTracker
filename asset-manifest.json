@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/CashflowTracker/static/css/main.15af041e.css",
-    "main.js": "/CashflowTracker/static/js/main.15bcda61.js",
+    "main.css": "/CashflowTracker/static/css/main.c789db09.css",
+    "main.js": "/CashflowTracker/static/js/main.658b4081.js",
     "static/js/787.d8b4215a.chunk.js": "/CashflowTracker/static/js/787.d8b4215a.chunk.js",
     "static/media/logo.svg": "/CashflowTracker/static/media/logo.426278726f90c57aa805eb591397948b.svg",
     "index.html": "/CashflowTracker/index.html",
-    "main.15af041e.css.map": "/CashflowTracker/static/css/main.15af041e.css.map",
-    "main.15bcda61.js.map": "/CashflowTracker/static/js/main.15bcda61.js.map",
+    "main.c789db09.css.map": "/CashflowTracker/static/css/main.c789db09.css.map",
+    "main.658b4081.js.map": "/CashflowTracker/static/js/main.658b4081.js.map",
     "787.d8b4215a.chunk.js.map": "/CashflowTracker/static/js/787.d8b4215a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.15af041e.css",
-    "static/js/main.15bcda61.js"
+    "static/css/main.c789db09.css",
+    "static/js/main.658b4081.js"
   ]
 }
