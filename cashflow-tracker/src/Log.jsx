@@ -25,10 +25,6 @@ export default class Log extends Component {
             </select>
           </label>
           <label>
-            First name:
-            <input type="text" name="name" />
-          </label>
-          <label>
             Time:
             <input type="time" name="time" id="time" />
           </label>
