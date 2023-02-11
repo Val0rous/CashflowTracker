@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.scss';
 import Navigation from "./Navigation";
-import {BrowserRouter, HashRouter, Routes, Route} from "react-router-dom";
+import {BrowserRouter, /*HashRouter, */Routes, Route} from "react-router-dom";
 import Log from "./Log";
 import Transactions from "./Transactions";
 import Statistics from "./Statistics";
@@ -11,6 +11,7 @@ export default function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        {/*
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo"/>
           <p>
@@ -25,6 +26,7 @@ export default function App() {
             Learn React
           </a>
         </header>
+        */}
         <Navigation />
         <Routes>
           <Route path="/CashflowTracker/" element={<Log />} />

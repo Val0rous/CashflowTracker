@@ -12,32 +12,32 @@ export default function Navigation() {
   return (
     <nav className="Navigation">
       <NavLink to="/CashflowTracker/" end className={(url === "/" || url === "/CashflowTracker/" ? "active" : "")}>
-        <button onClick={navbar}>
-          <span className="material-symbols-outlined">
+        <button>
+          <span className="material-symbols-outlined log">
             paid
           </span>
           New&nbsp;Log
         </button>
       </NavLink>
       <NavLink to="/CashflowTracker/transactions">
-        <button onClick={navbar}>
-          <span className="material-symbols-outlined">
+        <button>
+          <span className="material-symbols-outlined transactions">
             format_list_bulleted
           </span>
           Transactions
         </button>
       </NavLink>
       <NavLink to="/CashflowTracker/stats">
-        <button onClick={navbar}>
-          <span className="material-symbols-outlined">
+        <button>
+          <span className="material-symbols-outlined stats">
             monitoring
           </span>
-          Stats
+          Statistics
         </button>
       </NavLink>
       <NavLink to="/CashflowTracker/settings">
-        <button onClick={navbar}>
-          <span className="material-symbols-outlined">
+        <button>
+          <span className="material-symbols-outlined settings">
             settings
           </span>
           Settings
@@ -45,8 +45,4 @@ export default function Navigation() {
       </NavLink>
     </nav>
   )
-}
-
-function navbar() {
-  //switch page
 }
