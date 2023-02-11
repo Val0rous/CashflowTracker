@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.scss';
 import Navigation from "./Navigation";
 import {BrowserRouter, /*HashRouter, */Routes, Route} from "react-router-dom";
