@@ -1,4 +1,4 @@
-import {Component} from "react";
+import {Component, useState} from "react";
 import "./Log.scss";
 
 export default class Log extends Component {
@@ -14,16 +14,31 @@ export default class Log extends Component {
   render() {
     return (
       <div className="Log">
-        <h1>stocazzo</h1>
         <form onSubmit={this.onFormSubmit}>
-          <label>
-            Type:
-            <select name="type" id="type">
-              <option value="output">Output</option>
-              <option value="input">Input</option>
-              <option value="transfer">Transfer</option>
-            </select>
-          </label>
+          <fieldset>
+            <input
+              type="radio"
+              name="type"
+              id="type_output"
+              value="output"
+              defaultChecked
+            />
+            <label htmlFor="type_output">Output</label>
+            <input
+              type="radio"
+              name="type"
+              id="type_input"
+              value="input"
+            />
+            <label htmlFor="type_input">Input</label>
+            <input
+              type="radio"
+              name="type"
+              id="type_transfer"
+              value="transfer"
+            />
+            <label htmlFor="type_transfer">Transfer</label>
+          </fieldset>
           <label>
             Time:
             <input type="time" name="time" id="time" />
@@ -135,7 +150,7 @@ export default class Log extends Component {
             Comment:
             <input type="text" name="comment" id="comment" />
           </label>
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Create Log" />
         </form>
       </div>
     )
