@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/CashflowTracker/static/css/main.b65608ba.css",
-    "main.js": "/CashflowTracker/static/js/main.89fa41ba.js",
+    "main.css": "/CashflowTracker/static/css/main.f1c6ce93.css",
+    "main.js": "/CashflowTracker/static/js/main.25b59318.js",
     "static/js/787.d8b4215a.chunk.js": "/CashflowTracker/static/js/787.d8b4215a.chunk.js",
     "index.html": "/CashflowTracker/index.html",
-    "main.b65608ba.css.map": "/CashflowTracker/static/css/main.b65608ba.css.map",
-    "main.89fa41ba.js.map": "/CashflowTracker/static/js/main.89fa41ba.js.map",
+    "main.f1c6ce93.css.map": "/CashflowTracker/static/css/main.f1c6ce93.css.map",
+    "main.25b59318.js.map": "/CashflowTracker/static/js/main.25b59318.js.map",
     "787.d8b4215a.chunk.js.map": "/CashflowTracker/static/js/787.d8b4215a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b65608ba.css",
-    "static/js/main.89fa41ba.js"
+    "static/css/main.f1c6ce93.css",
+    "static/js/main.25b59318.js"
   ]
 }
