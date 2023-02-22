@@ -2,6 +2,8 @@
   form {
     display: flex;
     flex-flow: column;
+
+
   }
 
   input[type="radio"] {
@@ -10,6 +12,20 @@
       + label {
         background-color: #1a73e8;
         color: white;
+      }
+    }
+
+    &:hover {
+      &:not(:checked) {
+        + label {
+          background-color: #c6dcf9;
+        }
+      }
+
+      &:checked {
+        + label {
+          background-color: #1b66ca;
+        }
       }
     }
   }
@@ -47,8 +63,66 @@
         padding-right: 16px;
         border-left: none;
       }
+
+      .radio_icon {
+        font-size: 1rem;
+        font-variation-settings:
+            'wght' 600;
+
+        &.transfer {
+          transform: rotate(90deg);
+        }
+      }
     }
   }
+
+  .datetime {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .transaction {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-evenly;
+
+    .source, .destination {
+      > label {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    .transaction_icon {
+      font-variation-settings:
+          'wght' 600;
+      color: #202124;
+    }
+  }
+
+  .amount {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-evenly;
+
+    > label {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      justify-content: center;
+
+      input, select {
+        font-size: 20px;
+      }
+    }
+  }
+
 
   input[type="submit"] {
     font-size: 16px;
@@ -59,5 +133,22 @@
     color: white;
     border: 2px solid #1a73e8;
     border-radius: 32px;
+
+    &:hover {
+      background-color: #1b66ca;
+      transition: opacity 15ms linear, background-color 15ms linear;
+      box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .3), 0 1px 3px 1px rgba(60, 64, 67, .15);
+    }
+
+    &:focus {
+      //--mdc-ripple-fg-size: 47px;
+      //--mdc-ripple-fg-scale: 2.06324;
+      //--mdc-ripple-fg-translate-start: -13.3281px, 9.51563px;
+      //--mdc-ripple-fg-translate-end: 16.0859px, -5.5px;
+      //-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      ////#202124
+      //will-change: transform, opacity;
+      background-color: #1c5fba;
+    }
   }
 }

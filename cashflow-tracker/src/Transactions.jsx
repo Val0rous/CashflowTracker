@@ -1,5 +1,5 @@
 export default function Transactions() {
   return (
-    <h1>diocane</h1>
+    <h1></h1>
   )
 }

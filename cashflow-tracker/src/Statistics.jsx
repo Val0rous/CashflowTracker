@@ -1,5 +1,5 @@
 export default function Statistics() {
   return (
-    <h1>porcodio</h1>
+    <h1></h1>
   )
 }
