@@ -11,7 +11,7 @@ export default function Navigation() {
 
   return (
     <nav className="Navigation">
-      <NavLink to="/CashflowTracker/" end className={(url === "/" || url === "/CashflowTracker/" ? "active" : "")}>
+      <NavLink to="/" end className={(url === "/" ? "active" : "")}>
         <button>
           <span className="material-symbols-outlined log">
             paid
@@ -19,7 +19,7 @@ export default function Navigation() {
           New&nbsp;Log
         </button>
       </NavLink>
-      <NavLink to="/CashflowTracker/transactions">
+      <NavLink to="/transactions">
         <button>
           <span className="material-symbols-outlined transactions">
             format_list_bulleted
@@ -27,7 +27,7 @@ export default function Navigation() {
           Transactions
         </button>
       </NavLink>
-      <NavLink to="/CashflowTracker/stats">
+      <NavLink to="/stats">
         <button>
           <span className="material-symbols-outlined stats">
             monitoring
@@ -35,7 +35,7 @@ export default function Navigation() {
           Statistics
         </button>
       </NavLink>
-      <NavLink to="/CashflowTracker/settings">
+      <NavLink to="/settings">
         <button>
           <span className="material-symbols-outlined settings">
             settings
