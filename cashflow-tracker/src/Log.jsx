@@ -1,4 +1,4 @@
-import {Component, useState} from "react";
+import {Component} from "react";
 import "./Log.scss";
 
 export default class Log extends Component {
@@ -10,7 +10,8 @@ export default class Log extends Component {
     const time = today.toLocaleTimeString("en-US", {
       hour: "2-digit",
       minute: "2-digit",
-      hour12: false,
+      //hour12: false,
+      hourCycle: "h23",
     });
     const date = today.toISOString().split("T")[0];
 
