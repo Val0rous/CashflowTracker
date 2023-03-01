@@ -10,7 +10,7 @@ import Settings from "./Settings";
 export default function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter basename="/CashflowTracker">
         {/*
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo"/>
