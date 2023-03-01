@@ -29,10 +29,10 @@ export default function App() {
         */}
         <Navigation />
         <Routes>
-          <Route path="/CashflowTracker/" element={<Log />} />
-          <Route path="/CashflowTracker/transactions" element={<Transactions />} />
-          <Route path="/CashflowTracker/stats" element={<Statistics />} />
-          <Route path="/CashflowTracker/settings" element={<Settings />} />
+          <Route path="/" element={<Log />} />
+          <Route path="/transactions" element={<Transactions />} />
+          <Route path="/stats" element={<Statistics />} />
+          <Route path="/settings" element={<Settings />} />
         </Routes>
       </BrowserRouter>
     </div>
