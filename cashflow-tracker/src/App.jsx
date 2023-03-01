@@ -29,7 +29,7 @@ export default function App() {
         */}
         <Navigation />
         <Routes>
-          <Route path="" element={<Log />} />
+          <Route path="/" element={<Log />} />
           <Route path="/transactions" element={<Transactions />} />
           <Route path="/stats" element={<Statistics />} />
           <Route path="/settings" element={<Settings />} />

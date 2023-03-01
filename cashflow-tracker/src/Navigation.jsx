@@ -11,7 +11,7 @@ export default function Navigation() {
 
   return (
     <nav className="Navigation">
-      <NavLink to="" end className={(url === "/" ? "active" : "")}>
+      <NavLink to="/" end className={(url === "/" ? "active" : "")}>
         <button>
           <span className="material-symbols-outlined log">
             paid
