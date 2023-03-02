@@ -183,8 +183,8 @@ export default class Log extends Component {
             */}
 
           <div className="amount">
-            <label htmlFor="amount">Amount</label>
-            <input type="number" name="amount" id="amount" min="0" step="0.01"/>
+            {/*<label htmlFor="amount">Amount</label>*/}
+            <input type="number" name="amount" id="amount" min="0" step="0.01" placeholder="Amount"/>
             <select name="currency" id="currency">
               <option value="eur">€</option>
               <option value="usd">$</option>
@@ -193,8 +193,8 @@ export default class Log extends Component {
           </div>
 
           <div className="comment">
-            <label htmlFor="comment">Comment</label>
-            <input type="text" name="comment" id="comment"/>
+            {/*<label htmlFor="comment">Comment</label>*/}
+            <input type="text" name="comment" id="comment" placeholder="Comment"/>
           </div>
           <input type="submit" value="Create Log"/>
         </form>
