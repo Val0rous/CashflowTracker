@@ -2,8 +2,16 @@
   form {
     display: flex;
     flex-flow: column;
+    width: 100%;
 
+  }
 
+  input, select {
+    &:focus {
+      //outline-color: #1a73e8;
+      outline: none;
+      border-color: #1a73e8 !important;
+    }
   }
 
   input[type="radio"] {
@@ -34,7 +42,7 @@
     margin: 0;
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
-    padding: 1rem;
+    padding: 1rem 1.6rem;
     display: flex;
     flex-flow: row;
     align-items: center;
@@ -96,6 +104,7 @@
       text-align: center;
       font-size: 13px;
       font-family: Roboto, sans-serif;
+      background-color: white;
     }
   }
 
@@ -103,7 +112,7 @@
     display: flex;
     flex-flow: row;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
 
     border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
     padding: 1rem;
@@ -123,6 +132,7 @@
       border: 1px solid rgb(118, 118, 118);
       border-radius: 6px;
       //background-color: white;
+      height: 38px;
 
       background: url("data:image/svg+xml,<svg height='10px' width='10px' viewBox='0 0 16 16' fill='%23000000' xmlns='http://www.w3.org/2000/svg'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>") no-repeat;
       background-position: calc(100% - 0.75rem) center !important;
@@ -143,7 +153,7 @@
     display: flex;
     flex-flow: row;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
 
     border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
     padding: 1rem;
@@ -154,6 +164,11 @@
       border-radius: 6px;
     }
 
+    input {
+      height: 20px;
+      flex-grow: 1;
+    }
+
     select {
       background: url("data:image/svg+xml,<svg height='10px' width='10px' viewBox='0 0 16 16' fill='%23000000' xmlns='http://www.w3.org/2000/svg'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>") no-repeat;
       background-position: calc(100% - 0.75rem) center !important;
@@ -161,6 +176,8 @@
       -webkit-appearance: none !important;
       appearance: none !important;
       padding-right: 2rem !important;
+
+      height: 38px;
     }
 
     /*
@@ -188,6 +205,10 @@
 
     input[type="text"] {
       padding: 8px;
+      height: 20px;
+      border: 1px solid rgb(118, 118, 118);
+      border-radius: 6px;
+      width: 100%;
     }
   }
 
