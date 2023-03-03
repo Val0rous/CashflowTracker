@@ -15,6 +15,7 @@ export default class Log extends Component {
     });
     const date = today.toISOString().split("T")[0];
 
+
     this.state = {
       time: time,
       date: date,
@@ -183,13 +184,25 @@ export default class Log extends Component {
             */}
 
           <div className="amount">
+            <label>Amount</label>
             {/*<label htmlFor="amount">Amount</label>*/}
-            <input type="number" name="amount" id="amount" min="0" step="0.01" placeholder="Amount"/>
-            <select name="currency" id="currency">
-              <option value="eur">€</option>
-              <option value="usd">$</option>
-              <option value="gbp">£</option>
-            </select>
+            <div className="custom">
+              <input type="number" name="amount" id="amount" min="0" step="0.01" placeholder="Amount"/>
+              <select name="currency" id="currency">
+                <option value="eur">€</option>
+                <option value="usd">$</option>
+                <option value="gbp">£</option>
+              </select>
+            </div>
+            <div className="preset">
+              <button type="button">1</button>
+              <button type="button">2</button>
+              <button type="button">5</button>
+              <button type="button">10</button>
+              <button type="button">20</button>
+              <button type="button">50</button>
+              <button type="button">100</button>
+            </div>
           </div>
 
           <div className="comment">

@@ -14,30 +14,6 @@
     }
   }
 
-  input[type="radio"] {
-    display: none;
-    &:checked {
-      + label {
-        background-color: #1a73e8;
-        color: white;
-      }
-    }
-
-    &:hover {
-      &:not(:checked) {
-        + label {
-          background-color: #c6dcf9;
-        }
-      }
-
-      &:checked {
-        + label {
-          background-color: #1b66ca;
-        }
-      }
-    }
-  }
-
   fieldset {
     margin: 0;
     border: none;
@@ -48,6 +24,30 @@
     align-items: center;
     justify-content: center;
     flex-grow: 1;
+
+    input[type="radio"] {
+      display: none;
+      &:checked {
+        + label {
+          background-color: #1a73e8;
+          color: white;
+        }
+      }
+
+      &:hover {
+        &:not(:checked) {
+          + label {
+            background-color: #c6dcf9;
+          }
+        }
+
+        &:checked {
+          + label {
+            background-color: #1b66ca;
+          }
+        }
+      }
+    }
 
     > label {
       font-size: 16px;
@@ -151,9 +151,10 @@
 
   .amount {
     display: flex;
-    flex-flow: row;
-    align-items: center;
-    justify-content: space-between;
+    flex-flow: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    row-gap: 5px;
 
     border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
     padding: 1rem;
@@ -192,6 +193,40 @@
       }
     }
     */
+
+    label {
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .preset {
+      display: flex;
+      flex-flow: row;
+      align-items: center;
+      justify-content: space-between;
+      column-gap: 7px;
+      min-width: 357px;
+      overflow-x: auto;
+
+      button {
+        font-size: 0.875rem;
+        font-weight: bold;
+        border-radius: 14px;
+        padding: 4px;
+        height: 28px;
+        width: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+
+        &:focus {
+          background-color: #1a73e8;
+          color: white;
+
+        }
+      }
+    }
   }
 
   .comment {
