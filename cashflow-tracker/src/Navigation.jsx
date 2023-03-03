@@ -22,7 +22,7 @@ export default function Navigation() {
       <NavLink to="/transactions">
         <button>
           <span className="material-symbols-outlined transactions">
-            format_list_bulleted
+            list_alt
           </span>
           Transactions
         </button>
@@ -30,7 +30,7 @@ export default function Navigation() {
       <NavLink to="/stats">
         <button>
           <span className="material-symbols-outlined stats">
-            monitoring
+            leaderboard
           </span>
           Statistics
         </button>
