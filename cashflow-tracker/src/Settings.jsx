@@ -1,5 +1,5 @@
 export default function Settings() {
   return (
-    <h1>vaffanculo</h1>
+    <h1></h1>
   )
 }
