@@ -38,15 +38,22 @@
   .active {
     * {
       color: #1a73e8;
-      font-weight: 700;
+      //font-weight: 700;
+    }
+
+    button {
+      &:not(span) {
+        font-weight: 900;
+      }
     }
 
     .material-symbols-outlined {
       font-variation-settings:
-              //"wght" 400,
+              "wght" 400,
               "FILL" 1;
       background-color: #bad5f8;
       border-radius: 16px;
+      font-weight: 500;
     }
   }
 
@@ -65,7 +72,7 @@
     height: 100%;
     //font-weight: normal;
     font: 500 12px "Roboto", sans-serif;
-    color: #4d4d4d;
+    color: #333333;
     border-radius: 6px;
     //padding: 4px 12px 12px;
   }

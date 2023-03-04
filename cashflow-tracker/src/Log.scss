@@ -24,26 +24,31 @@
     align-items: center;
     justify-content: center;
     flex-grow: 1;
+    transition: 0.15s ease-out;
 
     input[type="radio"] {
       display: none;
       &:checked {
         + label {
-          background-color: #1a73e8;
-          color: white;
+          background-color: #bad5f8;
+          //color: white;
+
+          > span {
+            display: block;
+          }
         }
       }
 
       &:hover {
         &:not(:checked) {
           + label {
-            background-color: #c6dcf9;
+            //background-color: #c6dcf9;
           }
         }
 
         &:checked {
           + label {
-            background-color: #1b66ca;
+            //background-color: #1b66ca;
           }
         }
       }
@@ -51,31 +56,38 @@
 
     > label {
       font-size: 16px;
+      line-height: 20px;
       font-weight: bold;
-      padding: 12.5px 12px;
+      padding: 10px 16px;
       background-color: white;
-      color: #1a73e8;
-      border: 2px solid #1a73e8;
+      color: #212121;
+      border: 1px solid #4d4d4d;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-flow: row;
       flex-grow: 1;
+      column-gap: 8px;
+      transition: 0.15s ease-out;
+
+      > span {
+        display: none;
+      }
 
       &:nth-child(2) {
-        border-radius: 16px 0 0 16px;
-        padding-left: 16px;
+        border-radius: 20px 0 0 20px;
+        //padding-left: 16px;
         border-right: none;
       }
 
       &:nth-child(6) {
-        border-radius: 0 16px 16px 0;
-        padding-right: 16px;
+        border-radius: 0 20px 20px 0;
+        //padding-right: 16px;
         border-left: none;
       }
 
       .radio_icon {
-        font-size: 1rem;
+        font-size: 20px;
         font-variation-settings:
             'wght' 600;
 
@@ -250,18 +262,29 @@
     }
   }
 
-  input[type="submit"] {
-    font-size: 16px;
-    font-weight: bold;
+  button[type="submit"] {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+    column-gap: 8px;
+    //font-size: 18px;
+    line-height: 24px;
+    font: 500 18px "Roboto", sans-serif;
     //padding: 16px 12px;
     //padding: 1rem 0.75rem;
-    padding: 1rem;
+    padding: 16px 20px;
     //margin: 18px;
     margin: 1rem;
     background-color: #1a73e8;
     color: white;
-    border: 2px solid #1a73e8;
-    border-radius: 32px;
+    border: none;
+    border-radius: 28px;
+
+    .material-symbols-outlined {
+      font-size: 24px;
+      font-variation-settings: "wght" 400;
+    }
 
     &:hover {
       background-color: #1b66ca;

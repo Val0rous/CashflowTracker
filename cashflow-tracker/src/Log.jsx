@@ -42,7 +42,7 @@ export default class Log extends Component {
               <span className="material-symbols-outlined radio_icon output">
                 north
               </span>
-              &nbsp;Output
+              Output
             </label>
             <input
               type="radio"
@@ -54,7 +54,7 @@ export default class Log extends Component {
               <span className="material-symbols-outlined radio_icon input">
                 south
               </span>
-              &nbsp;Input
+              Input
             </label>
             <input
               type="radio"
@@ -66,7 +66,7 @@ export default class Log extends Component {
               <span className="material-symbols-outlined radio_icon transfer">
                 sync_alt
               </span>
-              &nbsp;Transfer
+              Transfer
             </label>
           </fieldset>
 
@@ -209,7 +209,13 @@ export default class Log extends Component {
             {/*<label htmlFor="comment">Comment</label>*/}
             <input type="text" name="comment" id="comment" placeholder="Comment"/>
           </div>
-          <input type="submit" value="Create Log"/>
+          {/*<input type="submit" value="Create Log"/>*/}
+          <button type="submit">
+            <span className="material-symbols-outlined">
+              list_alt_add
+            </span>
+            Create Log
+          </button>
         </form>
       </div>
     )
