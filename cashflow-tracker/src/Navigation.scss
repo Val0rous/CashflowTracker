@@ -5,7 +5,7 @@
   justify-content: space-evenly;
   flex-flow: row;
   //background-color: white;
-  background-color: #e4eef5;
+  background-color: #e4eefc;
   //padding-bottom: 24px;
   position: fixed;
   bottom: 0;
@@ -14,7 +14,7 @@
   //border-top: 1px solid rgba(0, 0, 0, 0.0975);
   height: 80px;
 
-  .material-symbols-outlined {
+  .material-symbols-rounded {
     font-variation-settings:
             'FILL' 0,
             'wght' 400,
@@ -47,7 +47,7 @@
       }
     }
 
-    .material-symbols-outlined {
+    .material-symbols-rounded {
       font-variation-settings:
               "wght" 400,
               "FILL" 1;
@@ -72,7 +72,8 @@
     height: 100%;
     //font-weight: normal;
     font: 500 12px "Roboto", sans-serif;
-    color: #333333;
+    //color: #333333;
+    color: #212121;
     border-radius: 6px;
     //padding: 4px 12px 12px;
   }

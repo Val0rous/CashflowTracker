@@ -13,7 +13,7 @@ export default function Navigation() {
     <nav className="Navigation">
       <NavLink to="/" end className={(url === "/" ? "active" : "")}>
         <button>
-          <span className="material-symbols-outlined log">
+          <span className="material-symbols-rounded log">
             paid
           </span>
           New&nbsp;Log
@@ -21,7 +21,7 @@ export default function Navigation() {
       </NavLink>
       <NavLink to="/transactions">
         <button>
-          <span className="material-symbols-outlined transactions">
+          <span className="material-symbols-rounded transactions">
             list_alt
           </span>
           Transactions
@@ -29,7 +29,7 @@ export default function Navigation() {
       </NavLink>
       <NavLink to="/stats">
         <button>
-          <span className="material-symbols-outlined stats">
+          <span className="material-symbols-rounded stats">
             leaderboard
           </span>
           Statistics
@@ -37,7 +37,7 @@ export default function Navigation() {
       </NavLink>
       <NavLink to="/settings">
         <button>
-          <span className="material-symbols-outlined settings">
+          <span className="material-symbols-rounded settings">
             settings
           </span>
           Settings

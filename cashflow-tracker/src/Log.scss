@@ -10,7 +10,7 @@
     &:focus {
       //outline-color: #1a73e8;
       outline: none;
-      border-color: #1a73e8 !important;
+      //border-color: #1a73e8 !important;
     }
   }
 
@@ -44,7 +44,7 @@
       &:hover {
         &:not(:checked) {
           + label {
-            //background-color: #c6dcf9;
+            background-color: #e4eefc;
           }
         }
 
@@ -60,7 +60,8 @@
       font-size: 16px;
       line-height: 20px;
       font-weight: bold;
-      padding: 10px 16px;
+      font-family: "Roboto", sans-serif;
+      padding: 9px 16px;
       background-color: white;
       color: #212121;
       border: 1px solid #616161;
@@ -159,7 +160,7 @@
     .transaction_icon {
       font-variation-settings:
           'wght' 600;
-      color: #202124;
+      color: #212121;
     }
   }
 
@@ -235,7 +236,8 @@
         justify-content: center;
         border: none;
         min-width: 38px;
-        background-color: rgb(239, 239, 239);
+        //background-color: rgb(239, 239, 239);
+        background-color: #eeeeee;
 
         &:focus {
           background-color: #1a73e8;
@@ -251,16 +253,53 @@
     flex-flow: row;
     align-items: center;
     justify-content: space-evenly;
+    //font-size: 16px;
+    font: 400 16px "Roboto", sans-serif;
+    position: relative;
 
-    border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
-    padding: 1rem;
+    //border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
+    margin: 16px 24px 8px 24px;
 
     input[type="text"] {
-      padding: 8px;
-      height: 20px;
-      border: 1px solid rgb(118, 118, 118);
-      border-radius: 6px;
-      width: 100%;
+      //padding: 8px;
+      padding: 11px 15px;
+      margin: 1px 1px 0 1px;
+      height: 28px;
+      //border: 1px solid rgb(118, 118, 118);
+      border: 1.5px solid #dadce0;
+      border-radius: 4px;
+      //width: 100%;
+      flex-grow: 1;
+      background-color: white;
+      line-height: 24px;
+      color: #202124;
+      cursor: text;
+
+      &:focus {
+        border-color: #1a73e8;
+
+        + label {
+          color: #1a73e8;
+          //font-weight: 500;
+        }
+      }
+
+      &:focus + label, &:not(:placeholder-shown) + label {
+        transform: scale(0.75) translateY(-37px);
+      }
+    }
+
+    label {
+      background-color: white;
+      border-radius: 4px;
+      left: 8px;
+      bottom: 17px;
+      color: #5f6368;
+      padding: 0 8px;
+      transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1), opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
+      transform-origin: bottom left;
+      pointer-events: none;
+      position: absolute;
     }
   }
 
@@ -277,24 +316,31 @@
     //padding: 1rem 0.75rem;
     padding: 16px 20px;
     //margin: 18px;
-    margin: 1rem;
-    background-color: #1a73e8;
-    color: white;
+    margin: 8px 24px 16px 24px;
+    //background-color: #1a73e8;
+    //color: white;
+    background-color: #bad5f8;
+    color: #0843d8;
     border: none;
-    border-radius: 28px;
+    //border-radius: 28px;
+    border-radius: 16px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: all 0.3s ease-in-out;
 
-    .material-symbols-outlined {
+    .material-symbols-rounded {
       font-size: 24px;
       font-variation-settings: "wght" 400;
     }
 
     &:hover {
-      background-color: #1b66ca;
-      transition: opacity 15ms linear, background-color 15ms linear;
+      //background-color: #1b66ca;
+      background-color: #8db9f4;
+      transition: opacity 15ms ease-in-out, background-color 15ms ease-in-out;
       box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .3), 0 1px 3px 1px rgba(60, 64, 67, .15);
     }
 
-    &:focus {
+    &:active {
       //--mdc-ripple-fg-size: 47px;
       //--mdc-ripple-fg-scale: 2.06324;
       //--mdc-ripple-fg-translate-start: -13.3281px, 9.51563px;
@@ -302,7 +348,9 @@
       //-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
       ////#202124
       //will-change: transform, opacity;
-      background-color: #1c5fba;
+      //background-color: #1c5fba;
+      //background-color: #8db9f4;
+      transform: scale(0.98);
     }
   }
 }

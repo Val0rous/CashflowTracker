@@ -39,7 +39,7 @@ export default class Log extends Component {
               defaultChecked
             />
             <label htmlFor="type_output">
-              <span className="material-symbols-outlined radio_icon output">
+              <span className="material-symbols-rounded radio_icon output">
                 north
               </span>
               Output
@@ -51,7 +51,7 @@ export default class Log extends Component {
               value="input"
             />
             <label htmlFor="type_input">
-              <span className="material-symbols-outlined radio_icon input">
+              <span className="material-symbols-rounded radio_icon input">
                 south
               </span>
               Input
@@ -63,7 +63,7 @@ export default class Log extends Component {
               value="transfer"
             />
             <label htmlFor="type_transfer">
-              <span className="material-symbols-outlined radio_icon transfer">
+              <span className="material-symbols-rounded radio_icon transfer">
                 sync_alt
               </span>
               Transfer
@@ -109,8 +109,8 @@ export default class Log extends Component {
               </select>
             {/*</div>*/}
 
-            <span className="material-symbols-outlined transaction_icon">
-              arrow_forward
+            <span className="material-symbols-rounded transaction_icon">
+              east
             </span>
 
             {/*<div className="destination">*/}
@@ -187,7 +187,7 @@ export default class Log extends Component {
             <label>Amount</label>
             {/*<label htmlFor="amount">Amount</label>*/}
             <div className="custom">
-              <input type="number" name="amount" id="amount" min="0" step="0.01" placeholder="Amount"/>
+              <input type="number" name="amount" id="amount" min="0" step="0.01" placeholder="0.00"/>
               <select name="currency" id="currency">
                 <option value="eur">€</option>
                 <option value="usd">$</option>
@@ -206,12 +206,12 @@ export default class Log extends Component {
           </div>
 
           <div className="comment">
-            {/*<label htmlFor="comment">Comment</label>*/}
-            <input type="text" name="comment" id="comment" placeholder="Comment"/>
+            <input type="text" name="comment" id="comment" placeholder=" " />
+            <label htmlFor="comment">Comment</label>
           </div>
           {/*<input type="submit" value="Create Log"/>*/}
           <button type="submit">
-            <span className="material-symbols-outlined">
+            <span className="material-symbols-rounded">
               list_alt_add
             </span>
             Create Log
