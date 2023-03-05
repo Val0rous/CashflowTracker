@@ -17,7 +17,7 @@ export default function Navigation() {
           <span className="material-symbols-rounded log">
             paid
           </span>
-          New&nbsp;Log
+          <span className="icon-label">New&nbsp;Log</span>
         </button>
       </NavLink>
       <NavLink to="/transactions">
@@ -26,7 +26,7 @@ export default function Navigation() {
           <span className="material-symbols-rounded transactions">
             list_alt
           </span>
-          Transactions
+          <span className="icon-label">Transactions</span>
         </button>
       </NavLink>
       <NavLink to="/stats">
@@ -35,7 +35,7 @@ export default function Navigation() {
           <span className="material-symbols-rounded stats">
             leaderboard
           </span>
-          Statistics
+          <span className="icon-label">Statistics</span>
         </button>
       </NavLink>
       <NavLink to="/settings">
@@ -44,7 +44,7 @@ export default function Navigation() {
           <span className="material-symbols-rounded settings">
             settings
           </span>
-          Settings
+          <span className="icon-label">Settings</span>
         </button>
       </NavLink>
     </nav>

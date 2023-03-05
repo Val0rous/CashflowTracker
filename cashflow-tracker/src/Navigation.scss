@@ -12,6 +12,7 @@
   width: 100%;
   //border-top: 1px solid rgba(0, 0, 0, 0.0975);
   height: 80px;
+  z-index: 1;
 
   .icon-background {
     //transition: all 0.25s ease-out;
@@ -69,6 +70,15 @@
     }
   }
 
+  @keyframes bottom-up {
+    0% {
+      transform: scaleY(0);
+    }
+    100% {
+      transform: scaleY(1);
+    }
+  }
+
   a {
     text-decoration: none;
     display: flex;
@@ -87,9 +97,14 @@
 
     button {
       position: relative;
+
       &:not(span) {
         font-weight: 900;
         //transition: 0.25s linear;
+      }
+
+      .icon-label {
+        transition: 0.25s ease;
       }
     }
 
@@ -113,6 +128,13 @@
       //font-weight: 500;
       //animation: icon-background 0.2s;
       //animation-timing-function: ease-out;
+
+      transition: 0.25s ease;
+    }
+
+    .stats {
+      animation: bottom-up 0.25s;
+      animation-timing-function: ease;
     }
   }
 
