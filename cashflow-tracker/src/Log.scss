@@ -25,7 +25,7 @@
     align-items: center;
     justify-content: center;
     flex-grow: 1;
-    transition: 0.15s ease-out;
+    //transition: 0.15s linear;
 
     input[type="radio"] {
       display: none;
@@ -34,6 +34,7 @@
           background-color: #bad5f8;
           //color: white;
           color: #0843d8;
+          transition: 0.2s linear;
 
           > span {
             display: block;
@@ -71,7 +72,7 @@
       flex-flow: row;
       flex-grow: 1;
       column-gap: 8px;
-      transition: 0.15s ease-out;
+      transition: 0.2s linear;
 
       > span {
         display: none;
@@ -122,7 +123,20 @@
       font: 400 16px "Roboto", sans-serif;
       color: #212121;
       background-color: white;
+      -webkit-appearance: none;   /* Hide arrow in date/time input on Android */
     }
+
+    /*
+    input[type="date"] {
+
+      background: url("data:image/svg+xml,<svg height='48px' width='48px' viewBox='0 0 48 48' fill='%23212121' xmlns='hjttp://www.w3.org/2000/svg'><path d='M 9.00,44.00 C 8.20,44.00 7.50,43.70 6.90,43.10 6.30,42.50 6.00,41.80 6.00,41.00 6.00,41.00 6.00,10.00 6.00,10.00 6.00,9.20 6.30,8.50 6.90,7.90 7.50,7.30 8.20,7.00 9.00,7.00 9.00,7.00 12.25,7.00 12.25,7.00 12.25,7.00 12.25,5.55 12.25,5.55 12.25,5.12 12.40,4.75 12.71,4.45 13.02,4.15 13.40,4.00 13.85,4.00 14.32,4.00 14.71,4.15 15.03,4.46 15.34,4.77 15.50,5.15 15.50,5.60 15.50,5.60 15.50,7.00 15.50,7.00 15.50,7.00 32.50,7.00 32.50,7.00 32.50,7.00 32.50,5.55 32.50,5.55 32.50,5.12 32.65,4.75 32.96,4.45 33.27,4.15 33.65,4.00 34.10,4.00 34.57,4.00 34.96,4.15 35.28,4.46 35.59,4.77 35.75,5.15 35.75,5.60 35.75,5.60 35.75,7.00 35.75,7.00 35.75,7.00 39.00,7.00 39.00,7.00 39.80,7.00 40.50,7.30 41.10,7.90 41.70,8.50 42.00,9.20 42.00,10.00 42.00,10.00 42.00,41.00 42.00,41.00 42.00,41.80 41.70,42.50 41.10,43.10 40.50,43.70 39.80,44.00 39.00,44.00 39.00,44.00 9.00,44.00 9.00,44.00 Z M 9.00,41.00 C 9.00,41.00 39.00,41.00 39.00,41.00 39.00,41.00 39.00,19.50 39.00,19.50 39.00,19.50 9.00,19.50 9.00,19.50 9.00,19.50 9.00,41.00 9.00,41.00 Z M 9.00,16.50 C 9.00,16.50 39.00,16.50 39.00,16.50 39.00,16.50 39.00,10.00 39.00,10.00 39.00,10.00 9.00,10.00 9.00,10.00 9.00,10.00 9.00,16.50 9.00,16.50 Z M 9.00,16.50 C 9.00,16.50 9.00,10.00 9.00,10.00 9.00,10.00 9.00,16.50 9.00,16.50 Z'/></svg>") no-repeat;
+      background-position: calc(100% - 0.75rem) center !important;
+      -moz-appearance:none !important;
+      -webkit-appearance: none !important;
+      appearance: none !important;
+      padding-right: 2rem !important;
+    }
+    */
   }
 
   .transaction {
@@ -170,7 +184,7 @@
       font-variation-settings:
           'wght' 600;
       color: #212121;
-      padding: 0 12px;
+      padding: 12px;
     }
   }
 

@@ -23,6 +23,22 @@
     padding: 4px 20px;
     font-size: 24px;
     margin-bottom: 8px;
+    /*
+    transition-property: width;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+    */
+    //transition: 0.2s ease-in-out;
+    transition: all 0.25s ease-out;
+  }
+
+  @keyframes icon-background {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
   }
 
   a {
@@ -49,11 +65,14 @@
 
     .material-symbols-rounded {
       font-variation-settings:
-              "wght" 400,
-              "FILL" 1;
+    "wght" 400,
+    "FILL" 1;
       background-color: #bad5f8;
       border-radius: 16px;
       font-weight: 500;
+      //animation: icon-background 0.2s;
+      //animation-timing-function: ease-out;
+      transition: all 0.25s ease-out;
     }
   }
 
@@ -76,5 +95,6 @@
     color: #212121;
     border-radius: 6px;
     //padding: 4px 12px 12px;
+    transition: 0.25s ease-in-out;
   }
 }
