@@ -101,6 +101,17 @@
     }
   }
 
+  /*
+  @keyframes shrink {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0);
+    }
+  }
+  */
+
   a {
     text-decoration: none;
     display: flex;
@@ -153,6 +164,24 @@
 
       transition: 0.25s ease;
     }
+
+    /*
+    button > .log::after {
+      content: '';
+      position: absolute;
+      top: 18.5px;
+      left: 42px;
+      background-color: #bad5f8;
+      //background: red;
+      border-radius: 50%;
+      width: 21px;
+      height: 21px;
+      z-index: 3;
+      animation: shrink 0.25s;
+      animation-timing-function: ease;
+      transform: scale(0);
+    }
+    */
 
     .log, .settings {
       position: relative;
