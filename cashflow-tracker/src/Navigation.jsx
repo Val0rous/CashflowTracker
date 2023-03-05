@@ -13,41 +13,37 @@ export default function Navigation() {
     <nav className="Navigation">
       <NavLink to="/" end className={(url === "/" ? "active" : "")}>
         <button>
-          <div className="icon-background">
-            <span className="material-symbols-rounded log">
-              paid
-            </span>
-          </div>
+          <div className="icon-background"></div>
+          <span className="material-symbols-rounded log">
+            paid
+          </span>
           New&nbsp;Log
         </button>
       </NavLink>
       <NavLink to="/transactions">
         <button>
-          <div className="icon-background">
-            <span className="material-symbols-rounded transactions">
-              list_alt
-            </span>
-          </div>
+          <div className="icon-background"></div>
+          <span className="material-symbols-rounded transactions">
+            list_alt
+          </span>
           Transactions
         </button>
       </NavLink>
       <NavLink to="/stats">
         <button>
-          <div className="icon-background">
-            <span className="material-symbols-rounded stats">
-              leaderboard
-            </span>
-          </div>
+          <div className="icon-background"></div>
+          <span className="material-symbols-rounded stats">
+            leaderboard
+          </span>
           Statistics
         </button>
       </NavLink>
       <NavLink to="/settings">
         <button>
-          <div className="icon-background">
-            <span className="material-symbols-rounded settings">
-              settings
-            </span>
-          </div>
+          <div className="icon-background"></div>
+          <span className="material-symbols-rounded settings">
+            settings
+          </span>
           Settings
         </button>
       </NavLink>
