@@ -31,7 +31,7 @@
     padding: 4px 20px;
     margin-bottom: 8px;
     height: 24px;
-    z-index: 1;
+    z-index: 2;
     /*
     transition-property: width;
     transition-duration: 0.2s;
@@ -72,10 +72,32 @@
 
   @keyframes bottom-up {
     0% {
+      top: 8px;
       transform: scaleY(0);
     }
     100% {
+      top: 0;
       transform: scaleY(1);
+    }
+  }
+
+  @keyframes left-right {
+    0% {
+      right: 8px;
+      transform: scaleX(0);
+    }
+    100% {
+      right: 0;
+      transform: scaleX(1);
+    }
+  }
+
+  @keyframes expand {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
     }
   }
 
@@ -132,7 +154,20 @@
       transition: 0.25s ease;
     }
 
+    .log, .settings {
+      position: relative;
+      animation: expand 0.25s;
+      animation-timing-function: ease;
+    }
+
+    .transactions {
+      position: relative;
+      animation: left-right 0.25s;
+      animation-timing-function: ease;
+    }
+
     .stats {
+      position: relative;
       animation: bottom-up 0.25s;
       animation-timing-function: ease;
     }
