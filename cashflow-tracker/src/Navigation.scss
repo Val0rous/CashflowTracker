@@ -42,13 +42,14 @@
 
   @keyframes background-fill {
     0% {
-      transform: scaleX(0.5);
+      transform: scaleX(0); //used to start from 0.5, now starts from 0 like proper
     }
     100% {
       transform: scaleX(1);
     }
   }
 
+  /*
   @keyframes background-empty {
     0% {
       transform: scaleX(1);
@@ -57,6 +58,7 @@
       transform: scaleX(0.5);
     }
   }
+  */
 
   @keyframes background-opacity-fill {
     0% {
