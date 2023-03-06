@@ -286,6 +286,7 @@
         //background-color: rgb(239, 239, 239);
         background-color: #eeeeee;
         color: #212121;
+        transition: 0.25s ease-in-out;
 
         &:focus {
           background-color: #bad5f8;
@@ -385,9 +386,10 @@
 
     &:hover {
       //background-color: #1b66ca;
-      background-color: #8db9f4;
-      transition: opacity 15ms ease-in-out, background-color 15ms ease-in-out;
+      //background-color: #8db9f4;
+      background-color: #cfdaff;
       box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .3), 0 1px 3px 1px rgba(60, 64, 67, .15);
+      transition: opacity 15ms ease-in-out, background-color 15ms ease-in-out;
     }
 
     &:active {
