@@ -1,4 +1,5 @@
-import "./Navigation.scss"
+import "./Navigation.scss";
+import "./Navigation_desktop.scss";
 import {NavLink,  useLocation} from "react-router-dom";
 import {useEffect, useState} from "react";
 

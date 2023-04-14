@@ -19,11 +19,24 @@ export default class Log extends Component {
     this.state = {
       time: time,
       date: date,
-    }
+      amount: "",
+    };
+  }
+
+  handleAmountChange = (event) => {
+    this.setState({amount: event.target.value});
+  }
+
+  handlePresetClick = (value) => {
+    //this.setState({amount: value.target.value});  //BUG: will cause infinite loop and make page load fail
   }
 
   onFormSubmit(submissionValues) {
 
+  }
+
+  setPresetAmount(value) {
+    this.amount = value;
   }
 
   render() {
@@ -187,7 +200,7 @@ export default class Log extends Component {
             <label>Amount</label>
             {/*<label htmlFor="amount">Amount</label>*/}
             <div className="custom">
-              <input type="number" name="amount" id="amount" min="0" step="0.01" placeholder="0.00"/>
+              <input type="number" name="amount" id="amount" min="0" step="0.01" placeholder="0.00" value={this.state.amount} onChange={this.handleAmountChange}/>
               <select name="currency" id="currency">
                 <option value="eur">€</option>
                 <option value="usd">$</option>
@@ -195,13 +208,13 @@ export default class Log extends Component {
               </select>
             </div>
             <div className="preset">
-              <button type="button">1</button>
-              <button type="button">2</button>
-              <button type="button">5</button>
-              <button type="button">10</button>
-              <button type="button">20</button>
-              <button type="button">50</button>
-              <button type="button">100</button>
+              <button type="button" id="preset_amount_1" onClick={this.handlePresetClick(1)}>1</button>
+              <button type="button" id="preset_amount_2" onClick={this.handlePresetClick(2)}>2</button>
+              <button type="button" id="preset_amount_5" onClick={this.handlePresetClick(5)}>5</button>
+              <button type="button" id="preset_amount_10" onClick={this.handlePresetClick(10)}>10</button>
+              <button type="button" id="preset_amount_20" onClick={this.handlePresetClick(20)}>20</button>
+              <button type="button" id="preset_amount_50" onClick={this.handlePresetClick(50)}>50</button>
+              <button type="button" id="preset_amount_100" onClick={this.handlePresetClick(100)}>100</button>
             </div>
           </div>
 
