@@ -94,7 +94,9 @@ export default class Log extends Component {
               <span className="material-symbols-rounded radio_icon output">
                 north
               </span>
-              Output
+              <span className="radio_label">
+                Output
+              </span>
             </label>
             <input
               type="radio"
@@ -106,7 +108,9 @@ export default class Log extends Component {
               <span className="material-symbols-rounded radio_icon input">
                 south
               </span>
-              Input
+              <span className="radio_label">
+                Input
+              </span>
             </label>
             <input
               type="radio"
@@ -118,7 +122,9 @@ export default class Log extends Component {
               <span className="material-symbols-rounded radio_icon transfer">
                 sync_alt
               </span>
-              Transfer
+              <span className="radio_label">
+                Transfer
+              </span>
             </label>
           </fieldset>
 

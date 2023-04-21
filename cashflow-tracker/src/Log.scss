@@ -34,7 +34,7 @@
           background-color: #bad5f8;
           //color: white;
           color: #0843d8;
-          transition: 0.2s linear;
+          transition: 0.25s ease;
 
           > span {
             display: block;
@@ -71,10 +71,11 @@
       justify-content: center;
       flex-flow: row;
       flex-grow: 1;
+      //width: 33.333%;
       column-gap: 8px;
-      transition: 0.2s linear;
+      transition: 0.25s ease;
 
-      > span {
+      > .radio_icon {
         display: none;
       }
 
@@ -82,16 +83,22 @@
         border-radius: 20px 0 0 20px;
         //padding-left: 16px;
         border-right: none;
+        width: 31.6%;
+      }
+
+      &:nth-child(4) {
+        width: 26.3%;
       }
 
       &:nth-child(6) {
         border-radius: 0 20px 20px 0;
         //padding-right: 16px;
         border-left: none;
+        width: 42.1%;
       }
 
       .radio_icon {
-        font-size: 20px;
+        font-size: 18px;
         font-variation-settings:
             'wght' 600;
 
