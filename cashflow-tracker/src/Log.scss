@@ -288,14 +288,10 @@
         color: #212121;
         transition: 0.25s ease-in-out;
 
-        &:focus {
+        &:focus, &.selected {
           background-color: #bad5f8;
           color: #0843d8;
           font-weight: 500;
-        }
-
-        &.selected {
-          background-color: red;  //BUG: not working
         }
       }
     }

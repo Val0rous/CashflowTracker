@@ -35,10 +35,26 @@ export default class Log extends Component {
     this.selectPresetButton(event.target.value, old_amount);
   }
 
-  selectPresetButton(new_amount, old_amount) {
+  removeOldSelection(old_amount) {
     let old_id = "preset_amount_" + old_amount;
+    if (old_amount !== "") {
+      switch (old_amount) {
+        case "1":
+        case "2":
+        case "5":
+        case "10":
+        case "20":
+        case "50":
+        case "100":
+          document.getElementById(old_id).classList.remove("selected");
+          break;
+      }
+    }
+  }
+
+  selectPresetButton(new_amount, old_amount) {
     let new_id = "preset_amount_" + new_amount;
-    switch(new_amount) {
+    switch (new_amount) {
       case "1":
       case "2":
       case "5":
@@ -46,15 +62,11 @@ export default class Log extends Component {
       case "20":
       case "50":
       case "100":
-        if (old_amount !== "") {
-          document.getElementById(old_id).classList.remove(".selected");
-        }
-        document.getElementById(new_id).classList.add(".selected");
+        this.removeOldSelection(old_amount);
+        document.getElementById(new_id).classList.add("selected");
         break;
       default:
-        if (old_amount !== "") {
-          document.getElementById(old_id).classList.remove(".selected");
-        }
+        this.removeOldSelection(old_amount);
     }
   }
 
