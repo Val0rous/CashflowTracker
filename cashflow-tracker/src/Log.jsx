@@ -33,6 +33,7 @@ export default class Log extends Component {
     let old_amount = this.state.amount;
     this.setState({amount: event.target.value});
     this.selectPresetButton(event.target.value, old_amount);
+    navigator.vibrate(200);
   }
 
   removeOldSelection(old_amount) {
