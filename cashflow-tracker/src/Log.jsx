@@ -24,13 +24,38 @@ export default class Log extends Component {
   }
 
   handleAmountChange = (event) => {
+    let old_amount = this.state.amount;
     this.setState({amount: event.target.value});
-    console.log(event.target.value);
+    this.selectPresetButton(event.target.value, old_amount);
   }
 
   handlePresetClick = (event) => {
+    let old_amount = this.state.amount;
     this.setState({amount: event.target.value});
-    console.log(event.target.value);
+    this.selectPresetButton(event.target.value, old_amount);
+  }
+
+  selectPresetButton(new_amount, old_amount) {
+    let old_id = "preset_amount_" + old_amount;
+    let new_id = "preset_amount_" + new_amount;
+    switch(new_amount) {
+      case "1":
+      case "2":
+      case "5":
+      case "10":
+      case "20":
+      case "50":
+      case "100":
+        if (old_amount !== "") {
+          document.getElementById(old_id).classList.remove(".selected");
+        }
+        document.getElementById(new_id).classList.add(".selected");
+        break;
+      default:
+        if (old_amount !== "") {
+          document.getElementById(old_id).classList.remove(".selected");
+        }
+    }
   }
 
   onFormSubmit(submissionValues) {

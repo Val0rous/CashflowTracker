@@ -293,6 +293,10 @@
           color: #0843d8;
           font-weight: 500;
         }
+
+        &.selected {
+          background-color: red;  //BUG: not working
+        }
       }
     }
   }
