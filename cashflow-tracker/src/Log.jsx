@@ -19,11 +19,63 @@ export default class Log extends Component {
     this.state = {
       time: time,
       date: date,
+      amount: "",
+    };
+  }
+
+  handleAmountChange = (event) => {
+    let old_amount = this.state.amount;
+    this.setState({amount: event.target.value});
+    this.selectPresetButton(event.target.value, old_amount);
+  }
+
+  handlePresetClick = (event) => {
+    let old_amount = this.state.amount;
+    this.setState({amount: event.target.value});
+    this.selectPresetButton(event.target.value, old_amount);
+  }
+
+  removeOldSelection(old_amount) {
+    let old_id = "preset_amount_" + old_amount;
+    if (old_amount !== "") {
+      switch (old_amount) {
+        case "1":
+        case "2":
+        case "5":
+        case "10":
+        case "20":
+        case "50":
+        case "100":
+          document.getElementById(old_id).classList.remove("selected");
+          break;
+      }
+    }
+  }
+
+  selectPresetButton(new_amount, old_amount) {
+    let new_id = "preset_amount_" + new_amount;
+    switch (new_amount) {
+      case "1":
+      case "2":
+      case "5":
+      case "10":
+      case "20":
+      case "50":
+      case "100":
+        this.removeOldSelection(old_amount);
+        document.getElementById(new_id).classList.add("selected");
+        break;
+      default:
+        this.removeOldSelection(old_amount);
     }
   }
 
   onFormSubmit(submissionValues) {
 
+  }
+
+  setPresetAmount(value) {
+    this.amount = value;
   }
 
   render() {
@@ -42,7 +94,9 @@ export default class Log extends Component {
               <span className="material-symbols-rounded radio_icon output">
                 north
               </span>
-              Output
+              <span className="radio_label">
+                Output
+              </span>
             </label>
             <input
               type="radio"
@@ -54,7 +108,9 @@ export default class Log extends Component {
               <span className="material-symbols-rounded radio_icon input">
                 south
               </span>
-              Input
+              <span className="radio_label">
+                Input
+              </span>
             </label>
             <input
               type="radio"
@@ -66,7 +122,9 @@ export default class Log extends Component {
               <span className="material-symbols-rounded radio_icon transfer">
                 sync_alt
               </span>
-              Transfer
+              <span className="radio_label">
+                Transfer
+              </span>
             </label>
           </fieldset>
 
@@ -179,7 +237,7 @@ export default class Log extends Component {
 
           {/*
             * Ask bro WTH is Class in Spreadsheet
-            * Asked him: it's literally the star classification based on the
+            * Asked him: it's  literally the star classification based on the
             * category of each transaction
             */}
 
@@ -187,7 +245,7 @@ export default class Log extends Component {
             <label>Amount</label>
             {/*<label htmlFor="amount">Amount</label>*/}
             <div className="custom">
-              <input type="number" name="amount" id="amount" min="0" step="0.01" placeholder="0.00"/>
+              <input type="number" name="amount" id="amount" min="0" step="0.01" placeholder="0.00" value={this.state.amount} onChange={this.handleAmountChange}/>
               <select name="currency" id="currency">
                 <option value="eur">€</option>
                 <option value="usd">$</option>
@@ -195,13 +253,13 @@ export default class Log extends Component {
               </select>
             </div>
             <div className="preset">
-              <button type="button">1</button>
-              <button type="button">2</button>
-              <button type="button">5</button>
-              <button type="button">10</button>
-              <button type="button">20</button>
-              <button type="button">50</button>
-              <button type="button">100</button>
+              <button type="button" id="preset_amount_1" value="1" onClick={this.handlePresetClick}>1</button>
+              <button type="button" id="preset_amount_2" value="2" onClick={this.handlePresetClick}>2</button>
+              <button type="button" id="preset_amount_5" value="5" onClick={this.handlePresetClick}>5</button>
+              <button type="button" id="preset_amount_10" value="10" onClick={this.handlePresetClick}>10</button>
+              <button type="button" id="preset_amount_20" value="20" onClick={this.handlePresetClick}>20</button>
+              <button type="button" id="preset_amount_50" value="50" onClick={this.handlePresetClick}>50</button>
+              <button type="button" id="preset_amount_100" value="100" onClick={this.handlePresetClick}>100</button>
             </div>
           </div>
 
