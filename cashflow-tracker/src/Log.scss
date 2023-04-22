@@ -65,7 +65,7 @@
       padding: 9px 16px;
       background-color: white;
       color: #212121;
-      border: 1px solid #616161;
+      border: 1.5px solid #616161;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -288,16 +288,18 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        border: none;
+        //border: none;
         min-width: 38px;
         //background-color: rgb(239, 239, 239);
-        background-color: #eeeeee;
+        background-color: #ffffff;
         color: #212121;
+        border: 1.5px solid #e0e0e0;
         transition: 0.25s ease-in-out;
 
         &:focus, &.selected {
           background-color: #bad5f8;
           color: #0843d8;
+          border-color: #3c88eb;
           font-weight: 500;
         }
       }
@@ -391,25 +393,33 @@
       font-variation-settings: "wght" 400;
     }
 
-    &:hover {
-      //background-color: #1b66ca;
-      //background-color: #8db9f4;
-      background-color: #cfdaff;
-      box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .3), 0 1px 3px 1px rgba(60, 64, 67, .15);
-      transition: opacity 15ms ease-in-out, background-color 15ms ease-in-out;
+    &:enabled {
+      &:hover {
+        //background-color: #1b66ca;
+        //background-color: #8db9f4;
+        background-color: #cfdaff;
+        box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .3), 0 1px 3px 1px rgba(60, 64, 67, .15);
+        transition: opacity 15ms ease-in-out, background-color 15ms ease-in-out;
+      }
+
+      &:active {
+        //--mdc-ripple-fg-size: 47px;
+        //--mdc-ripple-fg-scale: 2.06324;
+        //--mdc-ripple-fg-translate-start: -13.3281px, 9.51563px;
+        //--mdc-ripple-fg-translate-end: 16.0859px, -5.5px;
+        //-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        ////#202124
+        //will-change: transform, opacity;
+        //background-color: #1c5fba;
+        //background-color: #8db9f4;
+        transform: scale(0.98);
+      }
     }
 
-    &:active {
-      //--mdc-ripple-fg-size: 47px;
-      //--mdc-ripple-fg-scale: 2.06324;
-      //--mdc-ripple-fg-translate-start: -13.3281px, 9.51563px;
-      //--mdc-ripple-fg-translate-end: 16.0859px, -5.5px;
-      //-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-      ////#202124
-      //will-change: transform, opacity;
-      //background-color: #1c5fba;
-      //background-color: #8db9f4;
-      transform: scale(0.98);
+    &:disabled {
+      background-color: #f5f5f5;
+      color: #616161;
+      cursor: default;
     }
   }
 }

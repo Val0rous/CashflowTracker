@@ -20,6 +20,7 @@ export default class Log extends Component {
       time: time,
       date: date,
       amount: "",
+      disableButton: true,
     };
   }
 
@@ -73,10 +74,6 @@ export default class Log extends Component {
 
   onFormSubmit(submissionValues) {
 
-  }
-
-  setPresetAmount(value) {
-    this.amount = value;
   }
 
   render() {
@@ -269,7 +266,7 @@ export default class Log extends Component {
             <label htmlFor="comment">Comment</label>
           </div>
           {/*<input type="submit" value="Create Log"/>*/}
-          <button type="submit">
+          <button type="submit" disabled={this.state.disableButton}>
             <span className="material-symbols-rounded">
               list_alt_add
             </span>
