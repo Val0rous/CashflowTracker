@@ -24,17 +24,30 @@ export default class Log extends Component {
     };
   }
 
+  handleTimeChange = (event) => {
+    this.setState({time: event.target.value});
+    this.handleButtonStatus(event);
+  }
+
+  handleDateChange = (event) => {
+    this.setState({date: event.target.value});
+    this.handleButtonStatus(event);
+  }
+
   handleAmountChange = (event) => {
     let old_amount = this.state.amount;
     this.setState({amount: event.target.value});
     this.selectPresetButton(event.target.value, old_amount);
+    this.handleButtonStatus(event);
   }
 
   handlePresetClick = (event) => {
     let old_amount = this.state.amount;
     this.setState({amount: event.target.value});
+    document.getElementById("amount").value = event.target.value;
     this.selectPresetButton(event.target.value, old_amount);
     navigator.vibrate(75);
+    this.handleButtonStatus(event);
   }
 
   removeOldSelection(old_amount) {
@@ -70,6 +83,16 @@ export default class Log extends Component {
       default:
         this.removeOldSelection(old_amount);
     }
+  }
+
+  handleButtonStatus = (event) => {
+    let time = document.getElementById("time").value;
+    let date = document.getElementById("date").value;
+    let source = document.getElementById("source").value;
+    let destination = document.getElementById("destination").value;
+    let amount = document.getElementById("amount").value;
+    let flag = (time === "") || (date === "") || (source === "default") || (destination === "default") || (amount === "");
+    this.setState({disableButton: flag});
   }
 
   onFormSubmit(submissionValues) {
@@ -129,15 +152,15 @@ export default class Log extends Component {
           <div className="datetime">
             {/*<label htmlFor="time">Time:</label>*/}
 
-            <input type="time" name="time" id="time" defaultValue={this.state.time} />
+            <input type="time" name="time" id="time" defaultValue={this.state.time} onChange={this.handleTimeChange} />
             {/*<label htmlFor="date">Date:</label>*/}
-            <input type="date" name="date" id="date" defaultValue={this.state.date} />
+            <input type="date" name="date" id="date" defaultValue={this.state.date} onChange={this.handleDateChange} />
           </div>
 
           <div className="transaction">
             {/*<div className="source">*/}
               {/*<label htmlFor="source">Source</label>*/}
-              <select name="source" id="source" defaultValue="default">
+              <select name="source" id="source" defaultValue="default" onChange={this.handleButtonStatus}>
                 <option value="default" disabled hidden>
                   Source
                 </option>
@@ -171,7 +194,7 @@ export default class Log extends Component {
 
             {/*<div className="destination">*/}
               {/*<label htmlFor="destination">Destination</label>*/}
-              <select name="destination" id="destination" defaultValue="default">
+              <select name="destination" id="destination" defaultValue="default" onChange={this.handleButtonStatus}>
                 <option value="default" disabled hidden>
                   Destination
                 </option>
