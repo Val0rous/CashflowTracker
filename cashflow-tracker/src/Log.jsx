@@ -102,6 +102,7 @@ export default class Log extends Component {
   render() {
     return (
       <div className="Log">
+        <h1>Create new log</h1>
         <form onSubmit={this.onFormSubmit}>
           <fieldset>
             <input
@@ -199,7 +200,7 @@ export default class Log extends Component {
                   Destination
                 </option>
                 {/* 1 Star */}
-                <optgroup label="1 Star">
+                <optgroup label="★">
                   <option value="bank">Bank</option>
                   <option value="car">Car</option>
                   <option value="rent">Rent</option>
@@ -218,7 +219,7 @@ export default class Log extends Component {
                 </optgroup>
 
                 {/* 2 Stars */}
-                <optgroup label="2 Stars">
+                <optgroup label="★★">
                   <option value="meal">Meal</option>
                   <option value="personal_care">Personal Care</option>
                   <option value="app_software">App/Software</option>
@@ -238,7 +239,7 @@ export default class Log extends Component {
                 </optgroup>
 
                 {/* 3 Stars */}
-                <optgroup label="3 Stars">
+                <optgroup label="★★★">
                   <option value="movies">Cinema</option>
                   <option value="bet">Bet</option>
                   <option value="entertainment">Entertainment</option>
