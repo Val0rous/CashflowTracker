@@ -1,0 +1,42 @@
+.Settings {
+  margin: 16px 24px 0;
+
+  h1 {
+    font: 500 22px "Roboto", sans-serif;
+    color: #212121;
+    text-align: left;
+  }
+
+  .spreadsheet_url {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: flex-start;
+    row-gap: 8px;
+    column-gap: 8px;
+    padding: 20px;
+    border: 1.5px solid #616161;
+    border-radius: 20px;
+    background-color: #e4eefc;
+    //flex-grow: 1;
+    flex-wrap: wrap;
+
+    label {
+      font: 500 18px "Roboto", sans-serif;
+      line-height: 18px;
+      color: #212121;
+    }
+
+    input {
+      padding: 11px 15px;
+      border: 1.5px solid #e0e0e0;
+      border-radius: 4px;
+      background-color: white;
+      margin: 0;
+      font: 400 16px "Roboto", sans-serif;
+      color: #212121;
+      flex-grow: 1;
+      outline: none;
+    }
+  }
+}
