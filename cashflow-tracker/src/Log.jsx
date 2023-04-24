@@ -15,13 +15,31 @@ export default class Log extends Component {
     });
     const date = today.toISOString().split("T")[0];
 
+    let spreadsheet_url = this.getCookie("spreadsheetURL");
 
     this.state = {
       time: time,
       date: date,
       amount: "",
       disableButton: true,
+      spreadsheetURL: spreadsheet_url,
     };
+  }
+
+  getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
   }
 
   handleTimeChange = (event) => {
@@ -91,12 +109,12 @@ export default class Log extends Component {
     let source = document.getElementById("source").value;
     let destination = document.getElementById("destination").value;
     let amount = document.getElementById("amount").value;
-    let flag = (time === "") || (date === "") || (source === "default") || (destination === "default") || (amount === "");
+    let flag = (time === "") || (date === "") || (source === "default") || (destination === "default") || (amount === "") || (this.state.spreadsheetURL === "");
     this.setState({disableButton: flag});
   }
 
-  onFormSubmit(submissionValues) {
-
+  onFormSubmit = (event) => {
+    event.preventDefault();
   }
 
   render() {
@@ -297,7 +315,62 @@ export default class Log extends Component {
             Create Log
           </button>
         </form>
+        <Snackbar status="warning" isURLUnset={this.state.spreadsheetURL === ""} />
+        <Snackbar status="success" />
+        <Snackbar status="error" />
       </div>
     )
+  }
+}
+
+function Snackbar({status, isURLUnset}) {
+
+  function removeSuccessSnackbar() {
+    document.getElementById("snackbar_success").remove();
+  }
+
+  function removeErrorSnackbar() {
+    document.getElementById("snackbar_error").remove();
+  }
+
+  switch (status) {
+    case "success":
+      return (
+        <div className="Snackbar" id="snackbar_success">
+          <div>
+            <span className="material-symbols-rounded success">
+              check_circle
+            </span>
+            Log created successfully.
+          </div>
+          <a className="success" href="#" onClick={removeSuccessSnackbar}>Got it!</a>
+        </div>
+      )
+    case "error":
+      return (
+        <div className="Snackbar" id="snackbar_error">
+          <div>
+            <span className="material-symbols-rounded error">
+              error
+            </span>
+            An error occurred.
+          </div>
+          <a className="error" href="#" onClick={removeErrorSnackbar}>Oh fuck!</a>
+        </div>
+      )
+    case "warning":
+      if (isURLUnset) {
+        return (
+          <div className="Snackbar">
+            <div>
+            <span className="material-symbols-rounded warning">
+              warning
+            </span>
+              Spreadsheet is not set.
+            </div>
+            <a className="warning" href="/CashflowTracker/settings">Go to settings</a>
+          </div>
+        )
+      }
   }
 }
