@@ -1,11 +1,13 @@
-import {Component} from "react";
+import {Component, React} from "react";
 import "./Log.scss";
+import {v4 as uuidv4} from "uuid";
+import ReactDOM from "react-dom/client";
 
 export default class Log extends Component {
   constructor(props) {
     super(props);
-    this.onFormSubmit = this.onFormSubmit.bind(this);
 
+    this.onFormSubmit = this.onFormSubmit.bind(this);
     const today = new Date();
     const time = today.toLocaleTimeString("en-US", {
       hour: "2-digit",
@@ -13,8 +15,8 @@ export default class Log extends Component {
       //hour12: false,
       hourCycle: "h23",
     });
-    const date = today.toISOString().split("T")[0];
 
+    const date = today.toISOString().split("T")[0];
     let spreadsheet_url = this.getCookie("spreadsheetURL");
 
     this.state = {
@@ -115,6 +117,23 @@ export default class Log extends Component {
 
   onFormSubmit = (event) => {
     event.preventDefault();
+    let status = "success";
+    this.createSnackbar(status);
+  }
+
+  createSnackbar(status) {
+    if (status === "success") {
+      const element = <Snackbar status="success" />;
+      const container = document.getElementById("snackbar_container");
+      const snackbar_root = ReactDOM.createRoot(container);
+      snackbar_root.render(element);
+    }
+    if (status === "error") {
+      const element = <Snackbar status="error" />;
+      const container = document.getElementById("snackbar_container");
+      const snackbar_root = ReactDOM.createRoot(container);
+      snackbar_root.render(element);
+    }
   }
 
   render() {
@@ -315,66 +334,83 @@ export default class Log extends Component {
             Create Log
           </button>
         </form>
-        <Snackbar status="warning" isURLUnset={this.state.spreadsheetURL === ""} />
-        <Snackbar status="success" delay="12000" />
-        {/*<Snackbar status="error" delay="12000" />*/}
+        <div className="snackbar" id="snackbar_container">
+          <Snackbar status="warning" show={this.state.spreadsheetURL === ""} />
+          {/*<Snackbar status="success" show={this.state.submitStatus === "success"} />*/}
+          {/*<Snackbar status="error" show={this.state.submitStatus === "error"} />*/}
+          {/*this.snackbar*/}
+        </div>
       </div>
     )
   }
 }
 
-function Snackbar({status, delay, isURLUnset}) {
+function Snackbar({status, show}) {
 
-  function removeSuccessSnackbar() {
+  function removeSnackbar() {
+    /*
     const snackbar = document.getElementsByClassName("snackbar_success");
-    snackbar[0].parentNode.removeChild(snackbar[0]);
+    if (snackbar.length > 0) {
+      snackbar[0].remove();
+    }
+    */
+    const element = document.getElementById("snackbar_container");
+    ReactDOM.createRoot(element).unmount();
   }
 
+  /*
   function removeErrorSnackbar() {
     const snackbar = document.getElementsByClassName("snackbar_error");
-    snackbar[0].parentNode.removeChild(snackbar[0]);
+    if (snackbar.length > 0) {
+      snackbar[0].remove();
+    }
   }
+
+   */
 
   switch (status) {
     case "success":
-      setInterval(removeSuccessSnackbar, delay);
+      setTimeout(removeSnackbar, 12000);
       return (
         <div className="Snackbar snackbar_success">
           <div>
-            <span className="material-symbols-rounded success">
-              check_circle
-            </span>
+          <span className="material-symbols-rounded success">
+            check_circle
+          </span>
             Log created successfully.
           </div>
-          <a className="success" href="#" onClick={removeSuccessSnackbar}>Got it!</a>
+          <a className="success" href="#" onClick={removeSnackbar}>Got it!</a>
         </div>
       )
     case "error":
-      setInterval(removeErrorSnackbar, delay);
+      setTimeout(removeSnackbar, 12000);
       return (
         <div className="Snackbar snackbar_error">
           <div>
-            <span className="material-symbols-rounded error">
-              error
-            </span>
+          <span className="material-symbols-rounded error">
+            error
+          </span>
             An error occurred.
           </div>
-          <a className="error" href="#" onClick={removeErrorSnackbar}>Oh fuck!</a>
+          <a className="error" href="#" onClick={removeSnackbar}>Oh fuck!</a>
         </div>
       )
     case "warning":
-      if (isURLUnset) {
+      if (show) {
         return (
           <div className="Snackbar">
             <div>
-            <span className="material-symbols-rounded warning">
-              warning
-            </span>
+              <span className="material-symbols-rounded warning">
+                warning
+              </span>
               Spreadsheet is not set.
             </div>
             <a className="warning" href="/CashflowTracker/settings">Go to settings</a>
           </div>
         )
       }
+      break;
+    default:
+      return null;
   }
 }
