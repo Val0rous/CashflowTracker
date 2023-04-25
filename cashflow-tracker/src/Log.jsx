@@ -326,18 +326,20 @@ export default class Log extends Component {
 function Snackbar({status, delay, isURLUnset}) {
 
   function removeSuccessSnackbar() {
-    document.getElementById("snackbar_success").remove();
+    const snackbar = document.getElementsByClassName("snackbar_success");
+    snackbar[0].parentNode.removeChild(snackbar[0]);
   }
 
   function removeErrorSnackbar() {
-    document.getElementById("snackbar_error").remove();
+    const snackbar = document.getElementsByClassName("snackbar_error");
+    snackbar[0].parentNode.removeChild(snackbar[0]);
   }
 
   switch (status) {
     case "success":
-      //setInterval(removeSuccessSnackbar, delay);
+      setInterval(removeSuccessSnackbar, delay);
       return (
-        <div className="Snackbar" id="snackbar_success">
+        <div className="Snackbar snackbar_success">
           <div>
             <span className="material-symbols-rounded success">
               check_circle
@@ -348,9 +350,9 @@ function Snackbar({status, delay, isURLUnset}) {
         </div>
       )
     case "error":
-      //setInterval(removeErrorSnackbar, delay);
+      setInterval(removeErrorSnackbar, delay);
       return (
-        <div className="Snackbar" id="snackbar_error">
+        <div className="Snackbar snackbar_error">
           <div>
             <span className="material-symbols-rounded error">
               error
