@@ -316,14 +316,14 @@ export default class Log extends Component {
           </button>
         </form>
         <Snackbar status="warning" isURLUnset={this.state.spreadsheetURL === ""} />
-        <Snackbar status="success" />
-        <Snackbar status="error" />
+        <Snackbar status="success" delay="12000" />
+        {/*<Snackbar status="error" delay="12000" />*/}
       </div>
     )
   }
 }
 
-function Snackbar({status, isURLUnset}) {
+function Snackbar({status, delay, isURLUnset}) {
 
   function removeSuccessSnackbar() {
     document.getElementById("snackbar_success").remove();
@@ -335,6 +335,7 @@ function Snackbar({status, isURLUnset}) {
 
   switch (status) {
     case "success":
+      //setInterval(removeSuccessSnackbar, delay);
       return (
         <div className="Snackbar" id="snackbar_success">
           <div>
@@ -347,6 +348,7 @@ function Snackbar({status, isURLUnset}) {
         </div>
       )
     case "error":
+      //setInterval(removeErrorSnackbar, delay);
       return (
         <div className="Snackbar" id="snackbar_error">
           <div>

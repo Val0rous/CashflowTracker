@@ -12,7 +12,7 @@
   width: 100%;
   //border-top: 1px solid rgba(0, 0, 0, 0.0975);
   height: 80px;
-  z-index: 1;
+  z-index: 5;
 
   :not(.active) > button:hover::before {
     //transition: all 0.25s ease-out;
