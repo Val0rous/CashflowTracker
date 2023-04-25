@@ -354,8 +354,8 @@ function Snackbar({status, show}) {
       snackbar[0].remove();
     }
     */
-    const element = document.getElementById("snackbar_container");
-    ReactDOM.createRoot(element).unmount();
+    const container = document.getElementById("snackbar_container");
+    ReactDOM.createRoot(container).unmount();
   }
 
   /*
