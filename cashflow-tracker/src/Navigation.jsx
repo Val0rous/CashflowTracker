@@ -3,6 +3,11 @@ import "./Navigation_desktop.scss";
 import {NavLink,  useLocation} from "react-router-dom";
 import {useEffect, useState} from "react";
 
+/**
+ * Creates Navbar.
+ * @returns {JSX.Element} Navbar
+ * @constructor
+ */
 export default function Navigation() {
   const location = useLocation();
   const [url, setUrl] = useState(null);

@@ -1,8 +1,18 @@
-import {Component, React} from "react";
+import {Component /*, React*/} from "react";
 import "./Log.scss";
 import {v4 as uuidv4} from "uuid";
 import ReactDOM from "react-dom/client";
+import Snackbar from "./Snackbar";
+import * as utils from "./utils";
+import Source from "./Source";
+import Destination from "./Destination";
+import Presets from "./Presets";
+import Currencies from "./Currencies";
+import OperationType from "./OperationType";
 
+/**
+ * Creates New Log page.
+ */
 export default class Log extends Component {
   constructor(props) {
     super(props);
@@ -17,7 +27,7 @@ export default class Log extends Component {
     });
 
     const date = today.toISOString().split("T")[0];
-    let spreadsheet_url = this.getCookie("spreadsheetURL");
+    let spreadsheet_url = utils.getCookie("spreadsheetURL");
 
     this.state = {
       time: time,
@@ -26,22 +36,6 @@ export default class Log extends Component {
       disableButton: true,
       spreadsheetURL: spreadsheet_url,
     };
-  }
-
-  getCookie(cname) {
-    let name = cname + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
-    for(let i = 0; i <ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
-    }
-    return "";
   }
 
   handleTimeChange = (event) => {
@@ -117,8 +111,17 @@ export default class Log extends Component {
 
   onFormSubmit = (event) => {
     event.preventDefault();
-    let status = "success";
+    let status = this.createLog();
+    //let status = "success";
     this.createSnackbar(status);
+  }
+
+  /**
+   * Creates a new log in Excel spreadsheet on OneDrive, using JS REST Excel APIs.
+   * @returns {string} "success" if log created successfully, "error" otherwise
+   */
+  createLog() {
+    return "success";
   }
 
   createSnackbar(status) {
@@ -141,51 +144,7 @@ export default class Log extends Component {
       <div className="Log">
         <h1>Create new log</h1>
         <form onSubmit={this.onFormSubmit}>
-          <fieldset>
-            <input
-              type="radio"
-              name="type"
-              id="type_output"
-              value="output"
-              defaultChecked
-            />
-            <label htmlFor="type_output">
-              <span className="material-symbols-rounded radio_icon output">
-                north
-              </span>
-              <span className="radio_label">
-                Output
-              </span>
-            </label>
-            <input
-              type="radio"
-              name="type"
-              id="type_input"
-              value="input"
-            />
-            <label htmlFor="type_input">
-              <span className="material-symbols-rounded radio_icon input">
-                south
-              </span>
-              <span className="radio_label">
-                Input
-              </span>
-            </label>
-            <input
-              type="radio"
-              name="type"
-              id="type_transfer"
-              value="transfer"
-            />
-            <label htmlFor="type_transfer">
-              <span className="material-symbols-rounded radio_icon transfer">
-                sync_alt
-              </span>
-              <span className="radio_label">
-                Transfer
-              </span>
-            </label>
-          </fieldset>
+          <OperationType />
 
           <div className="datetime">
             {/*<label htmlFor="time">Time:</label>*/}
@@ -196,102 +155,13 @@ export default class Log extends Component {
           </div>
 
           <div className="transaction">
-            {/*<div className="source">*/}
-              {/*<label htmlFor="source">Source</label>*/}
-              <select name="source" id="source" defaultValue="default" onChange={this.handleButtonStatus}>
-                <option value="default" disabled hidden>
-                  Source
-                </option>
-                <optgroup label="Cash">
-                  <option value="wallet">Wallet</option>
-                  <option value="pocket">Pocket</option>
-                </optgroup>
-                <optgroup label="Digital">
-                  <option value="satispay">Satispay</option>
-                  <option value="paypal">PayPal</option>
-                  <option value="hype">Hype</option>
-                  <option value="revolut">Revolut</option>
-                </optgroup>
-                <optgroup label="Banks">
-                  <option value="bcc">BCC</option>
-                  <option value="intesa_sanpaolo">Intesa Sanpaolo</option>
-                  <option value="unicredit">Unicredit</option>
-                  <option value="bper">BPER</option>
-                  <option value="n26">N26</option>
-                </optgroup>
-                <optgroup label="Other">
-                  <option value="extra">Extra</option>
-                </optgroup>
-                {/* Add option in settings to change this list completely, with a reset to default button */}
-              </select>
-            {/*</div>*/}
+            <Source on_change={this.handleButtonStatus} />
 
             <span className="material-symbols-rounded transaction_icon">
               east
             </span>
 
-            {/*<div className="destination">*/}
-              {/*<label htmlFor="destination">Destination</label>*/}
-              <select name="destination" id="destination" defaultValue="default" onChange={this.handleButtonStatus}>
-                <option value="default" disabled hidden>
-                  Destination
-                </option>
-                {/* 1 Star */}
-                <optgroup label="★">
-                  <option value="bank">Bank</option>
-                  <option value="car">Car</option>
-                  <option value="rent">Rent</option>
-                  <option value="family">Family</option>
-                  <option value="fees">Fees</option>
-                  <option value="food">Food</option>
-                  <option value="fuel">Fuel</option>
-                  <option value="healthcare">Healthcare</option>
-                  <option value="household">Household</option>
-                  <option value="insurance">Insurance</option>
-                  <option value="job">Job</option>
-                  <option value="phone_internet">Phone/Internet</option>
-                  <option value="fines">Fines</option>
-                  <option value="supplements">Supplements</option>
-                  <option value="transport">Transport</option>
-                </optgroup>
-
-                {/* 2 Stars */}
-                <optgroup label="★★">
-                  <option value="meal">Meal</option>
-                  <option value="personal_care">Personal Care</option>
-                  <option value="app_software">App/Software</option>
-                  <option value="books">Books</option>
-                  <option value="electronics">Electronics</option>
-                  <option value="friends">Friends</option>
-                  <option value="gifts">Gifts</option>
-                  <option value="lost">Lost</option>
-                  {/* Why the hell is it in 2 stars??? WDYM?? */}
-                  <option value="other">Other</option>
-                  <option value="shipping">Shipping</option>
-                  <option value="sport">Sport</option>
-                  <option value="crypto">Crypto</option>
-                  <option value="accessories">Accessories</option>
-                  <option value="cafe">Café</option>
-                  <option value="clothing">Clothing</option>
-                </optgroup>
-
-                {/* 3 Stars */}
-                <optgroup label="★★★">
-                  <option value="movies">Cinema</option>
-                  <option value="bet">Bet</option>
-                  <option value="entertainment">Entertainment</option>
-                  <option value="fun">Fun</option>
-                  <option value="gaming">Gaming</option>
-                  <option value="hobby">Hobby</option>
-                  <option value="hotel">Hotel</option>
-                  <option value="pub">Pub</option>
-                  <option value="munchies">Munchies</option>
-                  <option value="restaurant">Restaurant</option>
-                  <option value="stuff">Stuff</option>
-                  <option value="travel">Travel</option>
-                </optgroup>
-              </select>
-            {/*</div>*/}
+            <Destination on_change={this.handleButtonStatus} />
           </div>
 
           {/*
@@ -305,21 +175,9 @@ export default class Log extends Component {
             {/*<label htmlFor="amount">Amount</label>*/}
             <div className="custom">
               <input type="number" name="amount" id="amount" min="0" step="0.01" placeholder="0.00" value={this.state.amount} onChange={this.handleAmountChange}/>
-              <select name="currency" id="currency">
-                <option value="eur">€</option>
-                <option value="usd">$</option>
-                <option value="gbp">£</option>
-              </select>
+              <Currencies />
             </div>
-            <div className="preset">
-              <button type="button" id="preset_amount_1" value="1" onClick={this.handlePresetClick}>1</button>
-              <button type="button" id="preset_amount_2" value="2" onClick={this.handlePresetClick}>2</button>
-              <button type="button" id="preset_amount_5" value="5" onClick={this.handlePresetClick}>5</button>
-              <button type="button" id="preset_amount_10" value="10" onClick={this.handlePresetClick}>10</button>
-              <button type="button" id="preset_amount_20" value="20" onClick={this.handlePresetClick}>20</button>
-              <button type="button" id="preset_amount_50" value="50" onClick={this.handlePresetClick}>50</button>
-              <button type="button" id="preset_amount_100" value="100" onClick={this.handlePresetClick}>100</button>
-            </div>
+            <Presets on_click={this.handlePresetClick} />
           </div>
 
           <div className="comment">
@@ -342,75 +200,5 @@ export default class Log extends Component {
         </div>
       </div>
     )
-  }
-}
-
-function Snackbar({status, show}) {
-
-  function removeSnackbar() {
-    /*
-    const snackbar = document.getElementsByClassName("snackbar_success");
-    if (snackbar.length > 0) {
-      snackbar[0].remove();
-    }
-    */
-    const container = document.getElementById("snackbar_container");
-    ReactDOM.createRoot(container).unmount();
-  }
-
-  /*
-  function removeErrorSnackbar() {
-    const snackbar = document.getElementsByClassName("snackbar_error");
-    if (snackbar.length > 0) {
-      snackbar[0].remove();
-    }
-  }
-
-   */
-
-  switch (status) {
-    case "success":
-      setTimeout(removeSnackbar, 12000);
-      return (
-        <div className="Snackbar snackbar_success">
-          <div>
-          <span className="material-symbols-rounded success">
-            check_circle
-          </span>
-            Log created successfully.
-          </div>
-          <a className="success" href="#" onClick={removeSnackbar}>Got it!</a>
-        </div>
-      )
-    case "error":
-      setTimeout(removeSnackbar, 12000);
-      return (
-        <div className="Snackbar snackbar_error">
-          <div>
-          <span className="material-symbols-rounded error">
-            error
-          </span>
-            An error occurred.
-          </div>
-          <a className="error" href="#" onClick={removeSnackbar}>Oh fuck!</a>
-        </div>
-      )
-    case "warning":
-      if (show) {
-        return (
-          <div className="Snackbar">
-            <div>
-              <span className="material-symbols-rounded warning">
-                warning
-              </span>
-              Spreadsheet is not set.
-            </div>
-            <a className="warning" href="/CashflowTracker/settings">Go to settings</a>
-          </div>
-        )
-      }
-      break;
-    default:
-      return null;
   }
 }

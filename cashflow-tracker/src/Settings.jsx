@@ -1,30 +1,19 @@
 import {Component} from "react";
 import "./Settings.scss";
+import * as utils from "./utils";
+
+/**
+ * Creates Settings page.
+ */
 export default class Settings extends Component {
   constructor(props) {
     super(props);
 
-    let spreadsheet_url = this.getCookie("spreadsheetURL");
+    let spreadsheet_url = utils.getCookie("spreadsheetURL");
 
     this.state = {
       spreadsheetURL: spreadsheet_url,
     }
-  }
-
-  getCookie(cname) {
-    let name = cname + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
-    for(let i = 0; i <ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
-    }
-    return "";
   }
 
   handleSpreadsheetURLChange = (event) => {

@@ -1,12 +1,17 @@
 //import logo from './logo.svg';
 import './App.scss';
 import Navigation from "./Navigation";
-import {BrowserRouter, /*HashRouter, */Routes, Route} from "react-router-dom";
+import {BrowserRouter, /*HashRouter,*/ Routes, Route} from "react-router-dom";
 import Log from "./Log";
 import Transactions from "./Transactions";
 import Statistics from "./Statistics";
 import Settings from "./Settings";
 
+/**
+ * Handles creation of React Application, creation of Navbar and routing depending on browser URL path.
+ * @returns {JSX.Element} Application
+ * @constructor
+ */
 export default function App() {
   return (
     <div className="App">
