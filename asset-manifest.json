@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/CashflowTracker/static/css/main.bfe64293.css",
-    "main.js": "/CashflowTracker/static/js/main.18734788.js",
-    "static/js/787.d8b4215a.chunk.js": "/CashflowTracker/static/js/787.d8b4215a.chunk.js",
+    "main.css": "/CashflowTracker/static/css/main.26187892.css",
+    "main.js": "/CashflowTracker/static/js/main.2e65f26e.js",
+    "static/js/787.dffa9b38.chunk.js": "/CashflowTracker/static/js/787.dffa9b38.chunk.js",
     "index.html": "/CashflowTracker/index.html",
-    "main.bfe64293.css.map": "/CashflowTracker/static/css/main.bfe64293.css.map",
-    "main.18734788.js.map": "/CashflowTracker/static/js/main.18734788.js.map",
-    "787.d8b4215a.chunk.js.map": "/CashflowTracker/static/js/787.d8b4215a.chunk.js.map"
+    "main.26187892.css.map": "/CashflowTracker/static/css/main.26187892.css.map",
+    "main.2e65f26e.js.map": "/CashflowTracker/static/js/main.2e65f26e.js.map",
+    "787.dffa9b38.chunk.js.map": "/CashflowTracker/static/js/787.dffa9b38.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bfe64293.css",
-    "static/js/main.18734788.js"
+    "static/css/main.26187892.css",
+    "static/js/main.2e65f26e.js"
   ]
 }
