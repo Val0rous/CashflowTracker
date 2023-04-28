@@ -201,6 +201,18 @@
       -webkit-appearance: none !important;
       appearance: none !important;
       padding-right: 2rem !important;
+
+      &[name="destination"] > optgroup:nth-child(2) {
+        color: #ea4335;
+      }
+
+      &[name="destination"] > optgroup:nth-child(3) {
+        color: #fbbc05;
+      }
+
+      &[name="destination"] > optgroup:nth-child(4) {
+        color: #34a853;
+      }
     }
 
     .transaction_icon {

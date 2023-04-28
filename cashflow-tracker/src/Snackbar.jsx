@@ -21,8 +21,7 @@ export default function Snackbar({status, show}) {
       snackbar[0].remove();
     }
   }
-
-   */
+  */
 
   switch (status) {
     case "success":
