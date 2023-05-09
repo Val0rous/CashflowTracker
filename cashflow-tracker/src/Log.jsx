@@ -9,6 +9,7 @@ import Destination from "./Destination";
 import Presets from "./Presets";
 import Currencies from "./Currencies";
 import OperationType from "./OperationType";
+import * as api from "./apiTest";
 
 /**
  * Creates New Log page.
@@ -120,7 +121,13 @@ export default class Log extends Component {
    * Creates a new log in Excel spreadsheet on OneDrive, using JS REST Excel APIs.
    * @returns {string} "success" if log created successfully, "error" otherwise
    */
-  createLog() {
+  async createLog() {
+    let accessToken = await api.getAccessToken();
+    console.log(accessToken);
+    console.log("diocane");
+    let metadata = await api.getMetadata(accessToken);
+    console.log(metadata);
+    console.log("dioporco");
     return "success";
   }
 
