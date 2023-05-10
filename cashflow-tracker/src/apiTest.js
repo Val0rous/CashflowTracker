@@ -1,9 +1,17 @@
 //Import MSAL library
 import * as msal from "@azure/msal-browser";
+/*
+import {
+  InteractionRequiredAuthError,
+  InteractionStatus
+} from "@azure/msal-browser";
+import { AuthenticatedTemplate, useMsal } from "@azure/msal-react";
+*/
 import * as utils from "./utils";
+//import {useEffect, useState} from "react";
 const spreadsheet_url = utils.getCookie("spreadsheetURL");
 
-export async function getAccessToken() {
+export async function getAccessTokenByChatGPT() {
   //Initialize MSAL with your client ID and redirect URI
   const msalConfig = {
     auth: {
@@ -30,7 +38,52 @@ export async function getAccessToken() {
   return accessToken;
 }
 
+/*
+export async function getAccessToken() {
+  const { instance, inProgress, accounts } = useMsal();
+  const [apiData, setApiData] = useState(null);
 
+  useEffect(() => {
+    if(!apiData && inProgress === InteractionStatus.None) {
+      const accessTokenRequest = {
+        scopes: ["user.read"],
+        account: accounts[0],
+      };
+      instance
+        .acquireTokenSilent(accessTokenRequest)
+        .then((accessTokenResponse) => {
+          //Acquire token silent success
+          let accessToken = accessTokenResponse.accessToken;
+          //Call your API with token
+          callApi(accessToken).then((response) => {
+            setApiData(response);
+          });
+        })
+        .catch((error) => {
+          if (error instanceof InteractionRequiredAuthError) {
+            instance
+              .acquireTokenPopup(accessTokenRequest)
+              .then(function (accessTokenResponse) {
+                //Acquire token interactive success
+                let accessToken = accessTokenResponse.accessToken;
+                //Call your API with token
+                callApi(accessToken).then((response) => {
+                  setApiData(response);
+                });
+              })
+              .catch(function (error) {
+                //Acquire token interactive failure
+                console.log(error);
+              });
+          }
+          console.log(error);
+        });
+    }
+  }, [instance, accounts, inProgress, apiData]);
+
+  return apiData;
+}
+*/
 
 export async function getMetadata(accessToken) {
   //Define the URL of the shared spreadsheet

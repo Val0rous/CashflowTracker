@@ -1,6 +1,6 @@
 import {Component /*, React*/} from "react";
 import "./Log.scss";
-import {v4 as uuidv4} from "uuid";
+//import {v4 as uuidv4} from "uuid";
 import ReactDOM from "react-dom/client";
 import Snackbar from "./Snackbar";
 import * as utils from "./utils";
@@ -100,7 +100,7 @@ export default class Log extends Component {
     }
   }
 
-  handleButtonStatus = (event) => {
+  handleButtonStatus = (/*event*/) => {
     let time = document.getElementById("time").value;
     let date = document.getElementById("date").value;
     let source = document.getElementById("source").value;
@@ -122,12 +122,12 @@ export default class Log extends Component {
    * @returns {string} "success" if log created successfully, "error" otherwise
    */
   async createLog() {
-    let accessToken = await api.getAccessToken();
+    let accessToken = await api.getAccessTokenByChatGPT();
+    console.log("Here's the Access Token");
     console.log(accessToken);
-    console.log("diocane");
     let metadata = await api.getMetadata(accessToken);
+    console.log("Here's the Metadata");
     console.log(metadata);
-    console.log("dioporco");
     return "success";
   }
 
