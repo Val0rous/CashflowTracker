@@ -1,5 +1,5 @@
-import {Component /*, React*/} from "react";
 import "./Log.scss";
+import {Component, createRef} from "react";
 //import {v4 as uuidv4} from "uuid";
 import ReactDOM from "react-dom/client";
 import Snackbar from "./Snackbar";
@@ -37,6 +37,9 @@ export default class Log extends Component {
       disableButton: true,
       spreadsheetURL: spreadsheet_url,
     };
+
+    this.snackbarContainerRef = createRef();
+    this.snackbarContainer = null;
   }
 
   handleTimeChange = (event) => {
@@ -110,9 +113,9 @@ export default class Log extends Component {
     this.setState({disableButton: flag});
   }
 
-  onFormSubmit = (event) => {
+  onFormSubmit = async (event) => {
     event.preventDefault();
-    let status = this.createLog();
+    let status = await this.createLog();
     //let status = "success";
     this.createSnackbar(status);
   }
@@ -122,26 +125,36 @@ export default class Log extends Component {
    * @returns {string} "success" if log created successfully, "error" otherwise
    */
   async createLog() {
+    /*
     let accessToken = await api.getAccessTokenByChatGPT();
     console.log("Here's the Access Token");
     console.log(accessToken);
     let metadata = await api.getMetadata(accessToken);
     console.log("Here's the Metadata");
     console.log(metadata);
+    */
     return "success";
   }
 
   createSnackbar(status) {
+    if (this.snackbarContainer === null) {
+      this.snackbarContainer = document.getElementById("snackbar_container");
+    }
     if (status === "success") {
       const element = <Snackbar status="success" />;
-      const container = document.getElementById("snackbar_container");
-      const snackbar_root = ReactDOM.createRoot(container);
+      //const container = document.getElementById("snackbar_container");
+      //const snackbar_root = ReactDOM.createRoot(container);
+      //snackbar_root.render(element);
+      //ReactDOM.render(element, this.snackbarContainerRef.current);
+      const snackbar_root = ReactDOM.createRoot(this.snackbarContainer);
       snackbar_root.render(element);
     }
     if (status === "error") {
       const element = <Snackbar status="error" />;
-      const container = document.getElementById("snackbar_container");
-      const snackbar_root = ReactDOM.createRoot(container);
+      //const container = document.getElementById("snackbar_container");
+      //const snackbar_root = ReactDOM.createRoot(container);
+      //snackbar_root.render(element);
+      const snackbar_root = ReactDOM.createRoot(this.snackbarContainer);
       snackbar_root.render(element);
     }
   }
@@ -199,7 +212,7 @@ export default class Log extends Component {
             Create Log
           </button>
         </form>
-        <div className="snackbar" id="snackbar_container">
+        <div className="snackbar" id="snackbar_container" ref={this.snackbarContainerRef}>
           <Snackbar status="warning" show={this.state.spreadsheetURL === ""} />
           {/*<Snackbar status="success" show={this.state.submitStatus === "success"} />*/}
           {/*<Snackbar status="error" show={this.state.submitStatus === "error"} />*/}

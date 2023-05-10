@@ -1,7 +1,9 @@
+import {useRef} from "react";
 import ReactDOM from "react-dom/client";
 import "./Snackbar.scss";
 
 export default function Snackbar({status, show}) {
+  const snackbarRef = useRef(null);
 
   function removeSnackbar() {
     /*
@@ -10,8 +12,9 @@ export default function Snackbar({status, show}) {
       snackbar[0].remove();
     }
     */
-    const container = document.getElementById("snackbar_container");
-    ReactDOM.createRoot(container).unmount();
+    //const container = document.getElementById("snackbar_container");
+    //ReactDOM.createRoot(container).unmount();
+    snackbarRef.current.remove();
   }
 
   /*
@@ -27,7 +30,7 @@ export default function Snackbar({status, show}) {
     case "success":
       setTimeout(removeSnackbar, 12000);
       return (
-        <div className="Snackbar snackbar_success">
+        <div className="Snackbar snackbar_success" ref={snackbarRef}>
           <div>
           <span className="material-symbols-rounded success">
             check_circle
@@ -40,7 +43,7 @@ export default function Snackbar({status, show}) {
     case "error":
       setTimeout(removeSnackbar, 12000);
       return (
-        <div className="Snackbar snackbar_error">
+        <div className="Snackbar snackbar_error" ref={snackbarRef}>
           <div>
           <span className="material-symbols-rounded error">
             error
