@@ -9,7 +9,7 @@ import Destination from "./Destination";
 import Presets from "./Presets";
 import Currencies from "./Currencies";
 import OperationType from "./OperationType";
-import * as api from "./apiTest";
+//import * as api from "./apiTest";
 
 /**
  * Creates New Log page.
